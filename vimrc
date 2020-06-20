@@ -6,7 +6,7 @@ nnoremap <Space> <Nop>
 nmap oo m`o<Esc>`` " insert new line below (no insert mode)
 nmap OO m`O<Esc>`` " insert new line above (no insert mode)
 
-inoremap ∆ <esc> " set alt-j to esc
+noremap ∆ <esc> " set alt-j to esc
 set noerrorbells
 
 set belloff=all
