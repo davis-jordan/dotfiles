@@ -20,7 +20,12 @@ alias debugrn='adb shell input keyevent 82'
 alias fixrn="adb reverse tcp:8081 tcp:8081"
 alias reactotron="open -a Reactotron && adb reverse tcp:9090 tcp:9090"
 
+# Shortcuts
+# =========
+alias r="ranger"
+
 # Useful
 alias zshrc="vim ~/dotfiles/zshrc"
+alias vimrc="vim ~/dotfiles/vimrc"
 alias sourcezsh=". ~/.zshrc"
 alias editaliases="vim ~/.oh-my-zsh/custom/aliases.zsh"

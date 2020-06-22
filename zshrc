@@ -17,7 +17,11 @@ source $ZSH/oh-my-zsh.sh
 
 # vi-mode Settings
 #==================
+bindkey -v
+export KEYTIMEOUT=1
+
 # Add Insert and Command Mode in RPROMPT
+# --------------------------------------
 vim_ins_mode="%{$fg[cyan]%}[INSERT]%{$reset_color%}"
 vim_cmd_mode="%{$fg[magenta]%}[COMMAND]%{$reset_color%}"
 vim_mode=$vim_ins_mode
@@ -41,6 +45,7 @@ RPROMPT='${vim_mode}'
 
 
 # Bind alt-j to esc for vi-mode
+# -----------------------------
 bindkey -M viins '∆' vi-cmd-mode
 
 

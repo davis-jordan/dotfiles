@@ -27,8 +27,7 @@ set incsearch
 set backspace=indent,eol,start
 
 call plug#begin('~/.vim/plugged')
-
-Plug 'gruvbox-community/gruvbox'
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-fugitive'
 Plug 'mxw/vim-jsx'
@@ -39,8 +38,9 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Valloric/YouCompleteMe'
 Plug 'mbbill/undotree'
 Plug 'preservim/nerdtree'
-
 call plug#end()
+
+colorscheme dracula
 
 let g:netrw_browse_split=2
 let g:netrw_winsize=35
