@@ -1,2 +1,6 @@
-noremap ∆ <Esc>
-inoremap ∆ <Esc>
+" noremap kj <Esc>
+inoremap jk <Esc>
+inoremap kj <Esc>
+set timeoutlen=1000
+set visualbell
+set noerrorbells

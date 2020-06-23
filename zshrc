@@ -1,5 +1,5 @@
 export ZSH="/Users/jordandavis/.oh-my-zsh"
-
+export EDITOR='nvim'
 # Basic Settings
 # ==============
 ZSH_THEME="gallifrey"
@@ -13,7 +13,6 @@ zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
-
 
 # vi-mode Settings
 #==================
@@ -46,8 +45,11 @@ RPROMPT='${vim_mode}'
 
 # Bind alt-j to esc for vi-mode
 # -----------------------------
-bindkey -M viins '∆' vi-cmd-mode
+bindkey -M viins 'jk' vi-cmd-mode
+bindkey -M viins 'kj' vi-cmd-mode
 
+# Set Key Timout to be longer than default for jk/kj to work
+export KEYTIMEOUT=10
 
 # Path Exports
 # ============

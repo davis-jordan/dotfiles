@@ -25,6 +25,7 @@ alias reactotron="open -a Reactotron && adb reverse tcp:9090 tcp:9090"
 alias r="ranger"
 
 # Useful
+alias vim="nvim"
 alias zshrc="vim ~/dotfiles/zshrc"
 alias vimrc="vim ~/dotfiles/vimrc"
 alias sourcezsh=". ~/.zshrc"
