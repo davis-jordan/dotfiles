@@ -1,13 +1,30 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": ["css", "markdown", "graphql", "html", "yaml",  "json", "python"],
-
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown",
+    "graphql",
+    "html",
+    "yaml",
+    "json",
+    "python"
+  ],
   // python config
   "python.linting.enabled": true,
   "python.linting.pylintEnabled": true,
-
-  "snippets.ultisnips.directories":
-  [
+  "snippets.ultisnips.directories": [
     "UltiSnips",
     "~/.config/nvim/utils/snips"
-  ]
+  ],
+  // explorer
+  "explorer.width": 50,
+  "explorer.icon.enableNerdfont": true,
+  "explorer.previewAction.onHover": false,
+  "explorer.keyMappings": {
+    "<cr>": [
+      "expandable?",
+      "expand",
+      "open"
+    ],
+    "v": "open:vsplit"
+  }
 }

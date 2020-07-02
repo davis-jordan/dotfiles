@@ -25,5 +25,11 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'kevinhwang91/rnvimr', {'do': 'make sync'} 
     " Comment Lines 
     Plug 'tpope/vim-commentary'
+    " Startify
+    Plug 'mhinz/vim-startify'
+    " FZF
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
+    Plug 'airblade/vim-rooter'
 
 call plug#end()

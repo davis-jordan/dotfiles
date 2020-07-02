@@ -17,7 +17,7 @@ alias lc="adb logcat -v color"
 # React Native
 alias rnstart='react-native start'
 alias debugrn='adb shell input keyevent 82'
-alias fixrn="adb reverse tcp:8081 tcp:8081"
+alias fixrn="adb reverse tcp:8081 tcp:8081 && sleep 3 && adb shell am start -n com.android.launcher3/.Launcher && adb shell am start -n com.taiv.dev_tvApp/com.taiv_tv_client.SplashActivity"
 alias reactotron="open -a Reactotron && adb reverse tcp:9090 tcp:9090"
 
 # Shortcuts

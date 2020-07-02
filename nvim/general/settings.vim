@@ -31,12 +31,17 @@ set nobackup                            " This is recommended by coc
 set nowritebackup                       " This is recommended by coc
 set updatetime=300                      " Faster completion
 set timeoutlen=500                      " By default timeoutlen is 1000 ms
-set formatoptions-=cro                  " Stop newline continution of comments
+" set formatoptions-=cro                  " Stop newline continution of comments
+  
+autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 set clipboard=unnamedplus               " Copy paste between vim and everything else
 set incsearch
 "set autochdir                          " Your working directory will always be the same as your working directory
-
+set ignorecase
+set smartcase                           " Case Insensitive search unless capitals used
 au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
-
+" set cul!                                " disable cursor line
+set ttyfast 
+set lazyredraw 
 " You can't stop me
 cmap w!! w !sudo tee % 

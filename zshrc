@@ -62,3 +62,5 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$JAVA_HOME/bin
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH" # Override BSD sed with GNU sed
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -15,8 +15,9 @@ set tabstop=2 softtabstop=2
 set shiftwidth=4
 set expandtab
 set smartindent
-set nu " add line numers
 set nowrap
+set number relativenumber
+set nu rnu
 set smartcase
 set noswapfile
 set nobackup
