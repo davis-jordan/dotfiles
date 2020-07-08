@@ -12,6 +12,9 @@ nnoremap ¬ :vertical resize +2<CR>
 inoremap jk <Esc>
 inoremap kj <Esc>
 
+" Save
+nnoremap <Leader>w :w<Cr>
+
 " Easy CAPS
 inoremap <c-u> <ESC>viwUi
 nnoremap <c-u> viwU<Esc>
@@ -21,12 +24,9 @@ nnoremap <TAB> :bnext<CR>
 " go to previous tab
 nnoremap <S-TAB> :bprevious<CR>
 
-" Alternate way to save nnoremap <C-s> :w<CR>
-" Alternate way to quit
-nnoremap <C-Q> :wq!<CR>
-" Use control-c instead of escape
-nnoremap <jk> <Esc>
-nnoremap <kj> <Esc>
+" Use jk instead of escape
+nnoremap jk <Esc>
+nnoremap kj <Esc>
 " <TAB>: completion.
 "inoremap <expr><TAB> pumvisible() ? \<C-n>" : "\<TAB>"
 
@@ -46,3 +46,7 @@ nnoremap <C-l> <C-w>l
 
 nnoremap <Leader>o o<Esc>^Da
 nnoremap <Leader>O O<Esc>^Da"
+
+
+" setup mapping to call :LazyGit
+nnoremap <silent> <leader>lg :LazyGit<CR>

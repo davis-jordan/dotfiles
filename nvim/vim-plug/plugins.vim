@@ -31,5 +31,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'airblade/vim-rooter'
-
+    " lazygit
+    Plug 'kdheepak/lazygit.nvim', { 'branch': 'nvim-v0.4.3' }
 call plug#end()
