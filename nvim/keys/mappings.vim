@@ -25,8 +25,8 @@ nnoremap <TAB> :bnext<CR>
 nnoremap <S-TAB> :bprevious<CR>
 
 " Use jk instead of escape
-nnoremap jk <Esc>
-nnoremap kj <Esc>
+" nnoremap jk <Esc>
+" nnoremap kj <Esc>
 " <TAB>: completion.
 "inoremap <expr><TAB> pumvisible() ? \<C-n>" : "\<TAB>"
 
