@@ -1,4 +1,4 @@
-" Better nav for omnicomplete
+" gBetter nav for omnicomplete
 inoremap <expr> <c-j> ("\<C-n>")
 inoremap <expr> <c-k> ("\<C-p>")
 
@@ -8,9 +8,12 @@ nnoremap ˚ :resize +2<CR>
 nnoremap ˙ :vertical resize -2<CR>
 nnoremap ¬ :vertical resize +2<CR>
 
-" I hate escape more than anything else
+" Remap esc to jk in insert mode 
 inoremap jk <Esc>
 inoremap kj <Esc>
+
+" Escape Visual Mode with space
+xnoremap <Space> <Esc>
 
 " Save
 nnoremap <Leader>w :w<Cr>
@@ -24,9 +27,6 @@ nnoremap <TAB> :bnext<CR>
 " go to previous tab
 nnoremap <S-TAB> :bprevious<CR>
 
-" Use jk instead of escape
-" nnoremap jk <Esc>
-" nnoremap kj <Esc>
 " <TAB>: completion.
 "inoremap <expr><TAB> pumvisible() ? \<C-n>" : "\<TAB>"
 
@@ -47,6 +47,14 @@ nnoremap <C-l> <C-w>l
 nnoremap <Leader>o o<Esc>^Da
 nnoremap <Leader>O O<Esc>^Da"
 
-
 " setup mapping to call :LazyGit
-nnoremap <silent> <leader>lg :LazyGit<CR>
+nnoremap <silent> <leader>g :LazyGit<CR>
+
+nnoremap <Leader>f :Lines<Cr>
+
+" Rename variable in file
+nmap <leader>rr <Plug>(coc-rename)
+nnoremap <leader>pr :CocSearch <C-R>=expand("<cword>")<CR><CR>
+
+" Project wide rename
+

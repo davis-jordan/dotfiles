@@ -24,10 +24,13 @@ alias reactotron="open -a Reactotron && adb reverse tcp:9090 tcp:9090"
 # Python
 alias p3='python3'
 
-# Shortcuts
-# =========
+# Navigation Shortcuts
+alias scripts="cd ~/Documents/Scripts"
+
+# Utility Shortcuts
 alias r="ranger"
 alias lg="lazygit"
+alias nf="neofetch"
 
 # Useful
 alias vim="nvim"
@@ -36,3 +39,6 @@ alias vimrc="vim ~/dotfiles/vimrc"
 alias sourcezsh=". ~/.zshrc"
 alias editaliases="vim ~/.oh-my-zsh/custom/aliases.zsh"
 alias dotfiles="cd ~/dotfiles"
+
+# Scripts
+alias h='. ~/Documents/Scripts/history.sh'
