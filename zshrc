@@ -8,8 +8,8 @@ HIST_STAMPS="yyyy-mm-dd"
 
 plugins=(
 git
-vi-mode
 zsh-syntax-highlighting
+zsh-vim-mode
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -19,22 +19,20 @@ source $ZSH/oh-my-zsh.sh
 bindkey -v
 export KEYTIMEOUT=1
 
-# Add Insert and Command Mode in RPROMPT
-# --------------------------------------
-vim_ins_mode="%{$fg[cyan]%}[INSERT]%{$reset_color%}"
-vim_cmd_mode="%{$fg[magenta]%}[COMMAND]%{$reset_color%}"
-vim_mode=$vim_ins_mode
+MODE_CURSOR_VIINS="#00ff00 blinking bar"
+MODE_CURSOR_REPLACE="$MODE_CURSOR_VIINS #ff0000"
+MODE_CURSOR_VICMD="green block"
+MODE_CURSOR_SEARCH="#ff00ff steady underline"
+MODE_CURSOR_VISUAL="$MODE_CURSOR_VICMD steady bar"
+MODE_CURSOR_VLINE="$MODE_CURSOR_VISUAL #00ffff"
 
-function zle-keymap-select {
-  vim_mode="${${KEYMAP/vicmd/${vim_cmd_mode}}/(main|viins)/${vim_ins_mode}}"
-  zle reset-prompt
+# my-script_widget() LBUFFER+=$(zsh $HOME/Documents/Scripts/clipboard_select.sh)
+my-script_widget() {
+  RESULT=$(zsh $HOME/Documents/Scripts/clipboard_select.sh)
+  LBUFFER+=$RESULT
 }
-zle -N zle-keymap-select
-
-function zle-line-finish {
-  vim_mode=$vim_ins_mode
-}
-zle -N zle-line-finish
+zle -N my-script_widget
+bindkey ^h my-script_widget
 
 function TRAPINT() {
   vim_mode=$vim_ins_mode

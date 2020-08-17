@@ -32,5 +32,7 @@
   "eslint.packageManager": "npm",
   "eslint.options": {
     "useEsLintrc": true
-  }
+  },
+  // Snippets
+  "snippets.userSnippetsDirectory": "~/.config/nvim/snips"
 }
