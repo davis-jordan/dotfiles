@@ -31,8 +31,8 @@ nnoremap <S-TAB> :bprevious<CR>
 "inoremap <expr><TAB> pumvisible() ? \<C-n>" : "\<TAB>"
 
 " vim-commentary
-nnoremap <space>/ :Commentary<CR>
-vnoremap <space>/ :Commentary<CR>
+nnoremap <Leader>/ :Commentary<CR>
+vnoremap <Leader>/ :Commentary<CR>
 
 " Better tabbing
 vnoremap < <gv
@@ -44,8 +44,8 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-nnoremap <Leader>o o<Esc>^Da
-nnoremap <Leader>O O<Esc>^Da"
+" nnoremap <Leader>o o<Esc>^Da
+" nnoremap <Leader>O O<Esc>^Da"
 
 " setup mapping to call :LazyGit
 nnoremap <silent> <leader>g :LazyGit<CR>
@@ -58,3 +58,5 @@ nnoremap <leader>pr :CocSearch <C-R>=expand("<cword>")<CR><CR>
 
 " Project wide rename
 
+" Close Buffer
+nnoremap <Leader>c :bd<CR>
