@@ -40,4 +40,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'rakr/vim-one'
     " Better Javascript Syntax highlighting
     Plug 'pangloss/vim-javascript'
+    " Floating Terminal
+    Plug 'voldikss/vim-floaterm'
 call plug#end()

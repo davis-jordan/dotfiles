@@ -28,11 +28,7 @@
     "v": "open:vsplit"
   },
   // es-lint
-  "eslint.enable": true,
   "eslint.packageManager": "npm",
-  "eslint.options": {
-    "useEsLintrc": true
-  },
   // Snippets
   "snippets.userSnippetsDirectory": "~/.config/nvim/snips"
 }

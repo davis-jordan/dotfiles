@@ -35,6 +35,12 @@ vnoremap <Leader>/ :Commentary<CR>
 vnoremap < <gv
 vnoremap > >gv
 
+" make Y effect to end of line instead of whole line
+map Y y$
+
+" Paste last yanked text
+nnoremap <Leader>p "0p
+
 " Better window navigation
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -48,9 +54,12 @@ nnoremap <silent> <leader>g :LazyGit<CR>
 nnoremap <Leader>f :BLines<Cr>
 
 " Close Buffer
-nnoremap <Leader>c :bd<CR>
+nnoremap <Leader>c :bp<cr>:bd #<cr>
 
 " Rename variable in file
-nnoremap <Leader>pr :CocSearch <C-R>=expand("<cword>")<CR><CR>
+nnoremap <Leader>gr :CocSearch <C-R>=expand("<cword>")<CR><CR>
 
+" nnoremap <silent> <Leader>t :FloatermNew<CR>
+nnoremap <silent> <Leader>t :FloatermToggle<CR>
+tnoremap <silent>  <Leader>t <C-\><C-n>:FloatermToggle<CR>
 
