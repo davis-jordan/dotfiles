@@ -49,6 +49,8 @@ bindkey -M viins 'kj' vi-cmd-mode
 # Set Key Timout to be longer than default for jk/kj to work
 export KEYTIMEOUT=10
 
+
+
 # Path Exports
 # ============
 export NVM_DIR="$HOME/.nvm"
@@ -64,3 +66,4 @@ export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES # Allows multithreading in python
 # Python with pyenv
 PATH=$(pyenv root)/shims:$PATH
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export BAT_THEME OneHalfDark

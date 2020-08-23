@@ -27,9 +27,6 @@ nnoremap <TAB> :bnext<CR>
 " go to previous tab
 nnoremap <S-TAB> :bprevious<CR>
 
-" <TAB>: completion.
-"inoremap <expr><TAB> pumvisible() ? \<C-n>" : "\<TAB>"
-
 " vim-commentary
 nnoremap <Leader>/ :Commentary<CR>
 vnoremap <Leader>/ :Commentary<CR>
@@ -44,19 +41,16 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" nnoremap <Leader>o o<Esc>^Da
-" nnoremap <Leader>O O<Esc>^Da"
-
 " setup mapping to call :LazyGit
 nnoremap <silent> <leader>g :LazyGit<CR>
 
-nnoremap <Leader>f :Lines<Cr>
-
-" Rename variable in file
-nmap <leader>rr <Plug>(coc-rename)
-nnoremap <leader>pr :CocSearch <C-R>=expand("<cword>")<CR><CR>
-
-" Project wide rename
+" Find
+nnoremap <Leader>f :BLines<Cr>
 
 " Close Buffer
 nnoremap <Leader>c :bd<CR>
+
+" Rename variable in file
+nnoremap <Leader>pr :CocSearch <C-R>=expand("<cword>")<CR><CR>
+
+
