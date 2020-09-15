@@ -1,6 +1,10 @@
-" noremap kj <Esc>
 inoremap jk <Esc>
 inoremap kj <Esc>
 set timeoutlen=1000
 set visualbell
 set noerrorbells
+
+" turn hybrid line numbers on
+:set number relativenumber
+:set nu rnu
+

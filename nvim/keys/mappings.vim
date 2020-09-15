@@ -15,34 +15,36 @@ inoremap kj <Esc>
 " Escape Visual Mode with space
 xnoremap <Space> <Esc>
 
-" Save
+" Quick Save
 nnoremap <Leader>w :w<Cr>
+" Quick quit
+nnoremap <Leader>q :q<Cr>
 
-" Easy CAPS
-inoremap <c-u> <ESC>viwUi
-nnoremap <c-u> viwU<Esc>
+" easy caps
+inoremap <c-u> <esc>viwUi
+nnoremap <c-u> viwu<esc>
 
 " go to next tab 
-nnoremap <TAB> :bnext<CR>
+nnoremap <tab> :bnext<CR>
 " go to previous tab
-nnoremap <S-TAB> :bprevious<CR>
+nnoremap <s-tab> :bprevious<CR>
 
 " vim-commentary
-nnoremap <Leader>/ :Commentary<CR>
-vnoremap <Leader>/ :Commentary<CR>
+nnoremap <leader>/ :Commentary<CR>
+vnoremap <leader>/ :Commentary<CR>
 
-" Better tabbing
+" better tabbing
 vnoremap < <gv
 vnoremap > >gv
 
-" make Y effect to end of line instead of whole line
+" make y effect to end of line instead of whole line
 map Y y$
 
-" Paste last yanked text
-nnoremap <Leader>p "0p
+" paste last yanked text
+nnoremap <leader>p "0p
 
-" Better window navigation
-nnoremap <C-h> <C-w>h
+" better window navigation
+nnoremap <c-h> <c-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
@@ -53,6 +55,9 @@ nnoremap <silent> <leader>g :LazyGit<CR>
 " Find
 nnoremap <Leader>f :BLines<Cr>
 
+" Files
+nnoremap <Leader>n :Files<Cr>
+
 " Close Buffer
 nnoremap <Leader>c :bp<cr>:bd #<cr>
 
@@ -60,6 +65,6 @@ nnoremap <Leader>c :bp<cr>:bd #<cr>
 nnoremap <Leader>gr :CocSearch <C-R>=expand("<cword>")<CR><CR>
 
 " nnoremap <silent> <Leader>t :FloatermNew<CR>
-nnoremap <silent> <Leader>t :FloatermToggle<CR>
-tnoremap <silent>  <Leader>t <C-\><C-n>:FloatermToggle<CR>
+nnoremap <silent> <Leader>T :FloatermToggle<CR>
+tnoremap <silent> <Leader>T <C-\><C-n>:FloatermToggle<CR>
 

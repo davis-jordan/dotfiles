@@ -1,3 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =1
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/Users/jordandavis/Documents/Taiv/Code/TaiV'
+let g:netrw_dirhist_2='/Users/jordandavis/Documents/Taiv/Code/TaiV/TaiV_TV_Client'
 let g:netrw_dirhist_1='/Users/jordandavis/Documents/Taiv/Code/TaiV_Scripts/restaurant-side-sales'

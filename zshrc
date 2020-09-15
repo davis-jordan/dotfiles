@@ -13,6 +13,7 @@ zsh-vim-mode
 )
 
 source $ZSH/oh-my-zsh.sh
+source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # vi-mode Settings
 #==================
@@ -66,4 +67,16 @@ export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES # Allows multithreading in python
 # Python with pyenv
 PATH=$(pyenv root)/shims:$PATH
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH="/usr/local/opt/llvm/bin:$PATH"
+
 export BAT_THEME OneHalfDark
+
+
+
+
+
+
+
+
+
+

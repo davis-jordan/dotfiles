@@ -42,4 +42,14 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'pangloss/vim-javascript'
     " Floating Terminal
     Plug 'voldikss/vim-floaterm'
+    " Quickscope
+    Plug 'unblevable/quick-scope'
+    " Sneak
+    Plug 'justinmk/vim-sneak'
+    " Smooth Scrolling
+    Plug 'yuttie/comfortable-motion.vim'
+    " X-code colorscheme
+    Plug 'arzg/vim-colors-xcode'
+
+    
 call plug#end()

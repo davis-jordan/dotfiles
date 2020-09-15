@@ -6,11 +6,13 @@ let g:startify_lists = [
           \ ]
 
 let g:startify_bookmarks = [
-            \ { 'c': '~/.config/i3/config' },
             \ { 'i': '~/.config/nvim/init.vim' },
+            \ { 'v': '~/.config/nvim/general/settings.vim' },
             \ { 'z': '~/.zshrc' },
-            \ { 't': '~/Documents/Taiv/Code/TaiV/TaiV_TV_Client'},
-            \ { 'w': '~/Documents/Taiv/Code/TaiV/TaiV_Web_App'},
+            \ { 't': '~/Documents/Taiv/Code/TaiV/TaiV_TV_Client/screens/SlideShowScreen.js'},
+            \ { 'w': '~/Documents/Taiv/Code/TaiV/TaiV_Web_App/src/index.js'},
+            \ { 's': '~/Documents/Taiv/Code/TaiV/TaiV_Server/functions/index.js'},
+            \ { 'd': '~/Documents/Taiv/Code/TaiV/taiv_utilities_dashboard/src/App.js'},
             \ ]
 
 let g:startify_session_autoload = 1

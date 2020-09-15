@@ -14,8 +14,8 @@ alias ac="adb connect"
 alias adc="adb disconnect"
 alias ad="adb devices"
 alias it="adb shell input text"
-alias lc="adb logcat -v color"
-
+alias lc="adb logcat -v color skia:S"
+alias serialno='. ~/Documents/Scripts/get_serialno.sh'
 # React Native
 alias rnstart='react-native start'
 alias debugrn='adb shell input keyevent 82'
@@ -51,3 +51,4 @@ alias dotfiles="cd ~/dotfiles"
 # Scripts
 alias h='. ~/Documents/Scripts/history.sh'
 alias sc='~/Documents/Scripts/adb_screenshot.sh'
+alias mdpdf='~/Documents/Scripts/md_to_pdf.sh'

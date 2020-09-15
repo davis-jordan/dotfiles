@@ -46,11 +46,18 @@ set lazyredraw
 cmap w!! w !sudo tee % 
 
 " Theme
-set background=dark                     " tell vim what the background color looks like
-set termguicolors
+" set background=dark                     " tell vim what the background color looks like
+" set termguicolors
 let g:one_allow_italics = 1 
-autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
-colorscheme one
+" autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
+" colorscheme one
+
+
+" colorscheme onedark
+
+" let g:javascript_plugin_jsdoc = 1
+" let g:javascript_plugin_ngdoc = 1
+" let g:javascript_plugin_flow = 1
 
 " turn hybrid line numbers on
 :set number relativenumber
