@@ -5,8 +5,10 @@ alias taivserver='cd ~/Documents/Taiv/Code/TaiV/TaiV_Server'
 alias taivservices='cd ~/Documents/Taiv/Code/TaiV/TaiV_Android_Services'
 alias taiv='cd ~/Documents/Taiv/Code/TaiV/'
 alias taivscripts='cd ~/Documents/Taiv/Code/TaiV_Scripts'
-alias startweb='cd ~/Documents/Taiv/Code/TaiV/TaiV_Web_App && npm i && cd prebuild_scripts && python UpdateFonts.py && cd .. && npm run start'
+alias startwebhard='cd ~/Documents/Taiv/Code/TaiV/TaiV_Web_App && npm i && cd prebuild_scripts && python UpdateFonts.py && cd .. && npm run start'
+alias startweb='cd ~/Documents/Taiv/Code/TaiV/TaiV_Web_App && npm start'
 alias taivdashboard='cd ~/Documents/Taiv/Code/TaiV/taiv_utilities_dashboard'
+alias buildtvprod='cd /Users/jordandavis/Documents/Taiv/Code/TaiV/TaiV_TV_Client/android; ./gradlew clean; ENVFILE=../.env.prod ./gradlew assembleProdRelease; open /Users/jordandavis/Documents/Taiv/Code/TaiV/TaiV_TV_Client/android/app/build/outputs/apk/prodRelease'
 
 # Android Dev
 alias rootshell='adb root && adb remount && adb shell'
@@ -14,7 +16,7 @@ alias ac="adb connect"
 alias adc="adb disconnect"
 alias ad="adb devices"
 alias it="adb shell input text"
-alias lc="adb logcat -v color skia:S"
+alias lc="adb logcat -v color skia:S SystemControl:S"
 alias serialno='. ~/Documents/Scripts/get_serialno.sh'
 # React Native
 alias rnstart='react-native start'

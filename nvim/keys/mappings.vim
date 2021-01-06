@@ -56,7 +56,7 @@ nnoremap <silent> <leader>g :LazyGit<CR>
 nnoremap <Leader>f :BLines<Cr>
 
 " Files
-nnoremap <Leader>n :Files<Cr>
+nnoremap <Leader>o :Files<Cr>
 
 " Close Buffer
 nnoremap <Leader>c :bp<cr>:bd #<cr>
@@ -65,6 +65,10 @@ nnoremap <Leader>c :bp<cr>:bd #<cr>
 nnoremap <Leader>gr :CocSearch <C-R>=expand("<cword>")<CR><CR>
 
 " nnoremap <silent> <Leader>t :FloatermNew<CR>
-nnoremap <silent> <Leader>T :FloatermToggle<CR>
-tnoremap <silent> <Leader>T <C-\><C-n>:FloatermToggle<CR>
+nnoremap <Leader>tt :FloatermToggle<CR>
+tnoremap <Leader>tt <C-\><C-n>:FloatermToggle<CR>
+tnoremap <silent> <C-n> <C-\><C-n>:FloatermNext<CR>
+
+" Unhighlight any text on screen
+nnoremap <Leader>h :noh<Cr>
 
