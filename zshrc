@@ -1,5 +1,6 @@
 export ZSH="/Users/jordandavis/.oh-my-zsh"
 export EDITOR='nvim'
+
 # Basic Settings
 # ==============
 ZSH_THEME="gallifrey"
@@ -49,8 +50,6 @@ bindkey -M viins 'kj' vi-cmd-mode
 
 # Set Key Timout to be longer than default for jk/kj to work
 export KEYTIMEOUT=10
-
-
 
 # Path Exports
 # ============
