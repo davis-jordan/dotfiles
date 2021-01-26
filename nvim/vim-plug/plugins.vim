@@ -50,6 +50,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'yuttie/comfortable-motion.vim'
     " X-code colorscheme
     Plug 'arzg/vim-colors-xcode'
+    Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
 
     
 call plug#end()

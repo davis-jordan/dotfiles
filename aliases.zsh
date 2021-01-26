@@ -16,7 +16,7 @@ alias ac="adb connect"
 alias adc="adb disconnect"
 alias ad="adb devices"
 alias it="adb shell input text"
-alias lc="adb logcat -v color skia:S SystemControl:S"
+alias lc="adb logcat -v color skia:S SystemControl:S audio_hw_subMixingFactory:S"
 alias serialno='. ~/Documents/Scripts/get_serialno.sh'
 # React Native
 alias rnstart='react-native start'

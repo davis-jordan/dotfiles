@@ -51,7 +51,13 @@ cmap w!! w !sudo tee %
 let g:one_allow_italics = 1 
 " autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
 " colorscheme one
+" if exists('+termguicolors')
+"   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+"   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+"   set termguicolors
+" endif
 
+" colorscheme spaceduck
 
 " colorscheme onedark
 

@@ -68,7 +68,7 @@ PATH=$(pyenv root)/shims:$PATH
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 
-export BAT_THEME OneHalfDark
+export BAT_THEME="TwoDark"
 
 
 
