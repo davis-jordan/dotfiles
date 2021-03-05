@@ -54,6 +54,4 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Onebuddy colorscheme
     Plug 'tjdevries/colorbuddy.vim'
     Plug 'Th3Whit3Wolf/onebuddy'
-
-    
 call plug#end()

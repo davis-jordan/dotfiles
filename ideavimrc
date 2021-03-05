@@ -1,5 +1,4 @@
-" set leader key
-let g:mapleader = "\<Space>"
+let g:mapleader = "\<Space>" " set leader key
 
 inoremap jk <Esc>
 inoremap kj <Esc>
