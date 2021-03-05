@@ -1,5 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =3
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/Users/jordandavis/Documents/Taiv/Code/TaiV/.circleci'
+let g:netrw_dirhist_0='/Users/jordandavis/Documents/Taiv/Code/TaiV_Scripts'
+let g:netrw_dirhist_9='/Users/jordandavis/Documents/Taiv/Code/TaiV_Scripts/taiv_setup'
+let g:netrw_dirhist_8='/Users/jordandavis/Documents'
+let g:netrw_dirhist_7='/Users/jordandavis/Documents/Notebook'
+let g:netrw_dirhist_6='/Users/jordandavis/Downloads/TeamviewerLogs'
+let g:netrw_dirhist_5='/Users/jordandavis/Downloads/A4'
+let g:netrw_dirhist_4='/Users/jordandavis/Downloads'
 let g:netrw_dirhist_3='/Users/jordandavis/Documents/Taiv/Code/TaiV'
 let g:netrw_dirhist_2='/Users/jordandavis/Documents/Taiv/Code/TaiV/TaiV_TV_Client'
-let g:netrw_dirhist_1='/Users/jordandavis/Documents/Taiv/Code/TaiV_Scripts/restaurant-side-sales'

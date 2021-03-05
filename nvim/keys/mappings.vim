@@ -34,8 +34,12 @@ nnoremap <leader>/ :Commentary<CR>
 vnoremap <leader>/ :Commentary<CR>
 
 " better tabbing
+" Stay in visual mode after indenting
 vnoremap < <gv
 vnoremap > >gv
+" Only one press instead of 2 to indent
+nnoremap > >>
+nnoremap < <<
 
 " make y effect to end of line instead of whole line
 map Y y$
@@ -72,3 +76,16 @@ tnoremap <silent> <C-n> <C-\><C-n>:FloatermNext<CR>
 " Unhighlight any text on screen
 nnoremap <Leader>h :noh<Cr>
 
+nnoremap <Leader>l oconsole.log('');<esc>F'i
+nnoremap <Leader>L Oconsole.log('');<esc>F'i
+
+" Search within visual selection
+vnoremap / <esc>/\%V
+
+inoremap <buffer> <C-s> <esc>yiwi<lt><esc>ea></><esc>hpF>i
+
+nnoremap zh 20zh
+nnoremap zl 20zl
+
+cnoremap <C-k> <Up>
+cnoremap <C-j> <Down>

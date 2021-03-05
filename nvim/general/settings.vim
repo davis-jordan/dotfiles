@@ -1,5 +1,4 @@
-" set leader key
-let g:mapleader = "\<Space>"
+let g:mapleader = "\<Space>" " set leader key
 
 syntax enable                           " Enables syntax highlighing
 set hidden                              " Required to keep multiple buffers open multiple buffers
@@ -30,41 +29,29 @@ set nobackup                            " This is recommended by coc
 set nowritebackup                       " This is recommended by coc
 set updatetime=300                      " Faster completion
 set timeoutlen=500                      " By default timeoutlen is 1000 ms
+set autoread                            " Auto reload file when it changes outside of vim
+set showcmd                             " Show current command that is being run
+set incsearch
+" Case Insensitive search unless capitals used
+set ignorecase
+set smartcase                           
+" turn hybrid line numbers on
+:set number relativenumber
+:set nu rnu
 
 " activates filetype detection
 filetype plugin indent on
+autocmd BufRead,BufNewFile   *.txt setlocal wrap linebreak
   
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 set clipboard=unnamedplus               " Copy paste between vim and everything else
-set incsearch
 set autochdir                          " Your working directory will always be the same as your working directory
-set ignorecase
-set smartcase                           " Case Insensitive search unless capitals used
 au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
 set ttyfast 
 set lazyredraw 
 cmap w!! w !sudo tee % 
 
-" Theme
-" set background=dark                     " tell vim what the background color looks like
-" set termguicolors
-let g:one_allow_italics = 1 
-" autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
-" colorscheme one
-" if exists('+termguicolors')
-"   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-"   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-"   set termguicolors
-" endif
+" Non theme related styling
+hi CursorLine term=bold cterm=bold guibg=#404959 " Change cursorline color
+hi Visual guibg=#6A7891 gui=none
 
-" colorscheme spaceduck
-
-" colorscheme onedark
-
-" let g:javascript_plugin_jsdoc = 1
-" let g:javascript_plugin_ngdoc = 1
-" let g:javascript_plugin_flow = 1
-
-" turn hybrid line numbers on
-:set number relativenumber
-:set nu rnu

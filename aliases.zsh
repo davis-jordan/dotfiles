@@ -1,3 +1,4 @@
+# alias adb='~/Documents/Scripts/adb_wrapper.sh'
 # Taiv
 alias taivtv='cd ~/Documents/Taiv/Code/TaiV/TaiV_TV_Client'
 alias taivweb='cd ~/Documents/Taiv/Code/TaiV/TaiV_Web_App'
@@ -16,13 +17,14 @@ alias ac="adb connect"
 alias adc="adb disconnect"
 alias ad="adb devices"
 alias it="adb shell input text"
-alias lc="adb logcat -v color skia:S SystemControl:S audio_hw_subMixingFactory:S"
+alias lc="adb logcat -v color skia:S SystemControl:S audio_hw_subMixingFactory:S USBSensor:S"
 alias serialno='. ~/Documents/Scripts/get_serialno.sh'
 # React Native
-alias rnstart='react-native start'
+alias rnstart='npx react-native start'
 alias debugrn='adb shell input keyevent 82'
 alias fixrn="adb reverse tcp:8081 tcp:8081 && sleep 3 && adb shell am start -n com.android.launcher3/.Launcher && adb shell am start -n com.taiv.dev_tvApp/com.taiv_tv_client.SplashActivity"
 alias reactotron="open -a Reactotron && adb reverse tcp:9090 tcp:9090"
+alias react-devtools="react-devtools && adb reverse tcp:8097 tcp:8097";
 
 # Firebase
 alias localfb="firebase emulators:start"
@@ -46,11 +48,14 @@ alias nf="neofetch"
 alias vim="nvim"
 alias zshrc="vim ~/dotfiles/zshrc"
 alias vimrc="vim ~/dotfiles/vimrc"
-alias sourcezsh=". ~/.zshrc"
+alias sourcezsh="exec zsh"
 alias editaliases="vim ~/.oh-my-zsh/custom/aliases.zsh"
 alias dotfiles="cd ~/dotfiles"
+alias cb="clipboard"
 
 # Scripts
 alias h='. ~/Documents/Scripts/history.sh'
 alias sc='~/Documents/Scripts/adb_screenshot.sh'
 alias mdpdf='~/Documents/Scripts/md_to_pdf.sh'
+alias note='~/Documents/Scripts/new_note.sh'
+alias notebook='~/Documents/Scripts/notebook.sh'

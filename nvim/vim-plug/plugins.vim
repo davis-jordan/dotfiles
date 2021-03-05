@@ -51,6 +51,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " X-code colorscheme
     Plug 'arzg/vim-colors-xcode'
     Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
+    " Onebuddy colorscheme
+    Plug 'tjdevries/colorbuddy.vim'
+    Plug 'Th3Whit3Wolf/onebuddy'
 
     
 call plug#end()

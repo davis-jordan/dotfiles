@@ -14,7 +14,10 @@ zsh-vim-mode
 )
 
 source $ZSH/oh-my-zsh.sh
+
+# Auto-suggestion
 source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+# bindkey '^M' autosuggest-execute
 
 # vi-mode Settings
 #==================
@@ -28,6 +31,12 @@ MODE_CURSOR_SEARCH="#ff00ff steady underline"
 MODE_CURSOR_VISUAL="$MODE_CURSOR_VICMD steady bar"
 MODE_CURSOR_VLINE="$MODE_CURSOR_VISUAL #00ffff"
 
+function TRAPINT() {
+  vim_mode=$vim_ins_mode
+  return $(( 128 + $1 ))
+} 
+RPROMPT='${vim_mode}'
+
 # my-script_widget() LBUFFER+=$(zsh $HOME/Documents/Scripts/clipboard_select.sh)
 my-script_widget() {
   RESULT=$(zsh $HOME/Documents/Scripts/clipboard_select.sh)
@@ -36,14 +45,7 @@ my-script_widget() {
 zle -N my-script_widget
 bindkey ^h my-script_widget
 
-function TRAPINT() {
-  vim_mode=$vim_ins_mode
-  return $(( 128 + $1 ))
-} 
-RPROMPT='${vim_mode}'
-
-
-# Bind alt-j to esc for vi-mode
+# Bind jk/kj to esc for vi-mode
 # -----------------------------
 bindkey -M viins 'jk' vi-cmd-mode
 bindkey -M viins 'kj' vi-cmd-mode
@@ -67,6 +69,7 @@ export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES # Allows multithreading in python
 PATH=$(pyenv root)/shims:$PATH
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="/usr/local/opt/llvm/bin:$PATH"
+export adb="$HOME/Documents/Scripts/adb_wrapper.sh"
 
 export BAT_THEME="TwoDark"
 
