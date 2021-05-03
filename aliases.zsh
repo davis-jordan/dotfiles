@@ -2,6 +2,7 @@
 # Taiv
 alias taivtv='cd ~/Documents/Taiv/Code/TaiV/TaiV_TV_Client'
 alias taivweb='cd ~/Documents/Taiv/Code/TaiV/TaiV_Web_App'
+alias taivads='cd ~/Documents/Taiv/Code/TaiV/TaiV_Ad_Manager'
 alias taivserver='cd ~/Documents/Taiv/Code/TaiV/TaiV_Server'
 alias taivservices='cd ~/Documents/Taiv/Code/TaiV/TaiV_Android_Services'
 alias taiv='cd ~/Documents/Taiv/Code/TaiV/'
@@ -9,7 +10,7 @@ alias taivscripts='cd ~/Documents/Taiv/Code/TaiV_Scripts'
 alias startwebhard='cd ~/Documents/Taiv/Code/TaiV/TaiV_Web_App && npm i && cd prebuild_scripts && python UpdateFonts.py && cd .. && npm run start'
 alias startweb='cd ~/Documents/Taiv/Code/TaiV/TaiV_Web_App && npm start'
 alias taivdashboard='cd ~/Documents/Taiv/Code/TaiV/taiv_utilities_dashboard'
-alias buildtvprod='cd /Users/jordandavis/Documents/Taiv/Code/TaiV/TaiV_TV_Client/android; ./gradlew clean; ENVFILE=../.env.prod ./gradlew assembleProdRelease; open /Users/jordandavis/Documents/Taiv/Code/TaiV/TaiV_TV_Client/android/app/build/outputs/apk/prodRelease'
+alias buildtvprod='cd ~/Documents/Taiv/Code/TaiV/TaiV_TV_Client/android; ./gradlew clean; ENVFILE=../.env.prod ./gradlew assembleProdRelease; open ~/Documents/Taiv/Code/TaiV/TaiV_TV_Client/android/app/build/outputs/apk/prodRelease'
 
 # Android Dev
 alias rootshell='adb root && adb remount && adb shell'
@@ -24,7 +25,7 @@ alias rnstart='npx react-native start'
 alias debugrn='adb shell input keyevent 82'
 alias fixrn="adb reverse tcp:8081 tcp:8081 && sleep 3 && adb shell am start -n com.android.launcher3/.Launcher && adb shell am start -n com.taiv.dev_tvApp/com.taiv_tv_client.SplashActivity"
 alias reactotron="open -a Reactotron && adb reverse tcp:9090 tcp:9090"
-alias react-devtools="react-devtools && adb reverse tcp:8097 tcp:8097";
+alias react-devtools="npx react-devtools && adb reverse tcp:8097 tcp:8097";
 
 # Firebase
 alias localfb="firebase emulators:start"

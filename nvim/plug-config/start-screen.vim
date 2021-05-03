@@ -13,6 +13,7 @@ let g:startify_bookmarks = [
             \ { 'w': '~/Documents/Taiv/Code/TaiV/TaiV_Web_App/src/index.js'},
             \ { 's': '~/Documents/Taiv/Code/TaiV/TaiV_Server/functions/index.js'},
             \ { 'd': '~/Documents/Taiv/Code/TaiV/taiv_utilities_dashboard/src/App.js'},
+            \ { 'a': '~/Documents/Taiv/Code/TaiV/TaiV_Ad_Manager/src/screens/Create.js'},
             \ ]
 
 let g:startify_session_autoload = 1

@@ -29,6 +29,7 @@
   },
   // es-lint
   "eslint.packageManager": "npm",
+  "eslint.enable": true,
   // Snippets
   "snippets.userSnippetsDirectory": "~/.config/nvim/snips"
 }
