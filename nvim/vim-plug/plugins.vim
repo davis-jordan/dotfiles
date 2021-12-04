@@ -54,4 +54,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Onebuddy colorscheme
     Plug 'tjdevries/colorbuddy.vim'
     Plug 'Th3Whit3Wolf/onebuddy'
+    Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+    " Vim snippets for react
+    ""Plug 'SirVer/ultisnips'
+    "Plug 'mlaursen/vim-react-snippets'
 call plug#end()

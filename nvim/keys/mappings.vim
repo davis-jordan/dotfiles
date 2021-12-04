@@ -89,3 +89,9 @@ nnoremap zl 20zl
 
 cnoremap <C-k> <Up>
 cnoremap <C-j> <Down>
+
+" Paste without yanking text that it replaces
+vnoremap p "_dP
+
+nnoremap L l
+nnoremap H h

@@ -54,3 +54,23 @@ cmap w!! w !sudo tee %
 " Non theme related styling
 hi CursorLine term=bold cterm=bold guibg=#404959 " Change cursorline color
 hi Visual guibg=#6A7891 gui=none
+
+
+
+func! WordProcessor()
+  " movement changes
+  map j gj
+  map k gk
+  " formatting text
+  setlocal formatoptions=1
+  setlocal noexpandtab
+  setlocal wrap
+  setlocal linebreak
+  " spelling and thesaurus
+  setlocal spell spelllang=en_us
+  set thesaurus+=/home/test/.vim/thesaurus/mthesaur.txt
+  " complete+=s makes autocompletion search the thesaurus
+  set complete+=s
+endfu
+com! WP call WordProcessor()
+

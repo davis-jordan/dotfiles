@@ -6,7 +6,7 @@
     "html",
     "yaml",
     "json",
-    "python"
+    /* "python" */
   ],
   // python config
   "python.linting.enabled": true,
@@ -19,6 +19,7 @@
   "explorer.width": 50,
   "explorer.icon.enableNerdfont": true,
   "explorer.previewAction.onHover": false,
+  "explorer.file.showHiddenFiles": true,
   /* "explorer.keyMappings": { */
   /*   "<cr>": [ */
   /*     "expandable?", */
@@ -32,6 +33,7 @@
 
     "*": "toggleSelection",
     "<tab>": ["wait", "actionMenu"],
+    "<s-tab>": ["wait", "actionMenu"],
     "v": ["wait", "open:vsplit"],
 
     "gk": ["wait", "expandablePrev"],
