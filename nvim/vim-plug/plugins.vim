@@ -58,4 +58,5 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Vim snippets for react
     ""Plug 'SirVer/ultisnips'
     "Plug 'mlaursen/vim-react-snippets'
+    " Plug 'lukas-reineke/indent-blankline.nvim'
 call plug#end()

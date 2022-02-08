@@ -36,8 +36,8 @@
     "<s-tab>": ["wait", "actionMenu"],
     "v": ["wait", "open:vsplit"],
 
-    "gk": ["wait", "expandablePrev"],
-    "gj": ["wait", "expandableNext"],
+    "gk": false,
+    "gj": false,
     "h": ["wait", "collapse"],
     "l": ["wait", "expandable?", "expand", "open"],
     "J": ["wait", "toggleSelection", "normal:j"],

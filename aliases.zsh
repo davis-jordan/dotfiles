@@ -22,6 +22,8 @@ alias it="adb shell input text"
 alias lc="adb logcat -v color skia:S SystemControl:S audio_hw_subMixingFactory:S USBSensor:S"
 alias serialno='. ~/Documents/Scripts/get_serialno.sh'
 alias as='open -a "Android Studio.app"'
+alias slideshow='adb shell "echo 1 > /sys/class/gpio/gpio431/value"'
+alias passthrough='adb shell "echo 0 > /sys/class/gpio/gpio431/value"'
 
 # React Native
 alias rnstart='npx react-native start'
