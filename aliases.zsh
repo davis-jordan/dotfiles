@@ -1,4 +1,3 @@
-# alias adb='~/Documents/Scripts/adb_wrapper.sh'
 # Taiv
 alias taivtv='cd ~/Documents/Taiv/Code/TaiV/TaiV_TV_Client'
 alias taivweb='cd ~/Documents/Taiv/Code/TaiV/TaiV_Web_App'

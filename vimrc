@@ -3,16 +3,13 @@ syntax on
 let mapleader = " " " set leader key to space
 nnoremap <Space> <Nop>
 
-nmap oo m`o<Esc>`` " insert new line below (no insert mode)
-nmap OO m`O<Esc>`` " insert new line above (no insert mode)
-
-noremap ∆ <esc> " set alt-j to esc
-inoremap ∆ <esc> " set alt-j to esc in insert mode
+inoremap kj <esc>
+inoremap jk <esc> 
 set noerrorbells
 
 set belloff=all
 set tabstop=2 softtabstop=2
-set shiftwidth=4
+set shiftwidth=2
 set expandtab
 set smartindent
 set nowrap
@@ -41,10 +38,6 @@ Plug 'mbbill/undotree'
 Plug 'preservim/nerdtree'
 call plug#end()
 
-colorscheme dracula
 
 let g:netrw_browse_split=2
 let g:netrw_winsize=35
-
-
-
