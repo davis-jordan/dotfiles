@@ -15,6 +15,7 @@ let g:startify_bookmarks = [
             \ { 'd': '~/Documents/Taiv/Code/TaiV/taiv_utilities_dashboard/src/App.js'},
             \ { 'a': '~/Documents/Taiv/Code/TaiV/TaiV_Ad_Manager/src/screens/Create.js'},
             \ { 'c': '~/Documents/Taiv/Code/TaiV/Taiv_Web_Common/package.json'},
+            \ { 'l': '~/Documents/Taiv/Code/TaiV/taiv_landing_page/pages/_app.tsx'},
             \ ]
 
 let g:startify_session_autoload = 1
