@@ -1,17 +1,19 @@
 # alias adb='~/Documents/Scripts/adb_wrapper.sh'
+TAIV_PATH="~/Documents/Taiv/Code/TaiV"
+
 # Taiv
-alias taivtv='cd ~/Documents/Taiv/Code/TaiV/TaiV_TV_Client'
-alias taivweb='cd ~/Documents/Taiv/Code/TaiV/TaiV_Web_App'
-alias taivads='cd ~/Documents/Taiv/Code/TaiV/TaiV_Ad_Manager'
-alias taivwc='cd ~/Documents/Taiv/Code/TaiV/Taiv_Web_Common'
-alias taivserver='cd ~/Documents/Taiv/Code/TaiV/TaiV_Server/functions'
-alias taivservices='cd ~/Documents/Taiv/Code/TaiV/TaiV_Android_Services'
-alias taiv='cd ~/Documents/Taiv/Code/TaiV/'
-alias taivscripts='cd ~/Documents/Taiv/Code/TaiV_Scripts'
-alias startwebhard='cd ~/Documents/Taiv/Code/TaiV/TaiV_Web_App && npm i && cd prebuild_scripts && python UpdateFonts.py && cd .. && npm run start'
-alias startweb='cd ~/Documents/Taiv/Code/TaiV/TaiV_Web_App && npm start'
-alias taivdashboard='cd ~/Documents/Taiv/Code/TaiV/taiv_utilities_dashboard'
-alias buildtvprod='cd ~/Documents/Taiv/Code/TaiV/TaiV_TV_Client/android; ./gradlew clean; ENVFILE=../.env.prod ./gradlew assembleProdRelease; open ~/Documents/Taiv/Code/TaiV/TaiV_TV_Client/android/app/build/outputs/apk/prodRelease'
+alias taivtv="cd ${TAIV_PATH}/TaiV_TV_Client"
+alias taivweb="cd ${TAIV_PATH}/TaiV_Web_App"
+alias taivads="cd ${TAIV_PATH}/TaiV_Ad_Manager"
+alias taivwc="cd ${TAIV_PATH}/Taiv_Web_Common"
+alias taivserver="cd ${TAIV_PATH}/TaiV_Server/functions"
+alias taivservices="cd ${TAIV_PATH}/TaiV_Android_Services"
+alias taiv="cd ${TAIV_PATH}/"
+alias taivscripts="cd ~/Documents/Taiv/Code/TaiV_Scripts"
+alias startwebhard="cd ${TAIV_PATH}/TaiV_Web_App && npm i && cd prebuild_scripts && python UpdateFonts.py && cd .. && npm run start"
+alias startweb="cd ${TAIV_PATH}/TaiV_Web_App && npm start"
+alias taivdashboard="cd ${TAIV_PATH}/taiv_utilities_dashboard"
+alias buildtvprod="cd ${TAIV_PATH}/TaiV_TV_Client/android; ./gradlew clean; ENVFILE=../.env.prod ./gradlew assembleProdRelease; open ${TAIV_PATH}/TaiV_TV_Client/android/app/build/outputs/apk/prodRelease"
 
 # Android Dev
 alias rootshell='adb root && adb remount && adb shell'
