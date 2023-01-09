@@ -16,7 +16,7 @@
   /*   "~/.config/nvim/utils/snips" */
   /* ], */
   // explorer
-  "explorer.width": 50,
+  "explorer.width": 30,
   "explorer.icon.enableNerdfont": true,
   "explorer.previewAction.onHover": false,
   "explorer.file.showHiddenFiles": true,
@@ -114,5 +114,9 @@
   "eslint.packageManager": "npm",
   "eslint.enable": true,
   // Snippets
-  "snippets.userSnippetsDirectory": "~/.config/nvim/snips"
+  "snippets.userSnippetsDirectory": "~/.config/nvim/snips",
+
+  // HTML
+  "html.enable": true,
+  "html.filetypes": ["html","handlebars","htmldjango","blade"]
 }

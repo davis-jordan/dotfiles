@@ -14,6 +14,8 @@ alias startwebhard="cd ${TAIV_PATH}/TaiV_Web_App && npm i && cd prebuild_scripts
 alias startweb="cd ${TAIV_PATH}/TaiV_Web_App && npm start"
 alias taivdashboard="cd ${TAIV_PATH}/taiv_utilities_dashboard"
 alias buildtvprod="cd ${TAIV_PATH}/TaiV_TV_Client/android; ./gradlew clean; ENVFILE=../.env.prod ./gradlew assembleProdRelease; open ${TAIV_PATH}/TaiV_TV_Client/android/app/build/outputs/apk/prodRelease"
+alias buildtvdev="cd ${TAIV_PATH}/TaiV_TV_Client/android; ./gradlew clean; ENVFILE=../.env ./gradlew assembleRelease; open ${TAIV_PATH}/TaiV_TV_Client/android/app/build/outputs/apk"
+
 
 # Android Dev
 alias rootshell='adb root && adb remount && adb shell'
