@@ -55,8 +55,6 @@ cmap w!! w !sudo tee %
 hi CursorLine term=bold cterm=bold guibg=#404959 " Change cursorline color
 hi Visual guibg=#6A7891 gui=none
 
-
-
 func! WordProcessor()
   " movement changes
   map j gj
