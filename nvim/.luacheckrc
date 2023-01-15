@@ -1,12 +1,10 @@
 -- Global objects
 globals = {
   "PACKER_BOOTSTRAP",
-  "_LAZYGIT_TOGGLE",
-  "_PYTHON_TOGGLE",
-  "_NODE_TOGGLE",
-  "_NCDU_TOGGLE",
-  "_HTOP_TOGGLE",
+  "astronvim",
+  "astronvim_installation",
   "vim",
+  "bit",
   "C",
   "packer_plugins",
 }
@@ -18,6 +16,6 @@ cache = true
 self = false
 
 ignore = {
-  "631",  -- max_line_length
-  "212/_.*",  -- unused argument, for vars with "_" prefix
+  "631", -- max_line_length
+  "212/_.*", -- unused argument, for vars with "_" prefix
 }
