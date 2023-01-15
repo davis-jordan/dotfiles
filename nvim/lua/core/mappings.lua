@@ -87,8 +87,8 @@ else -- TODO v3: remove this else block
 
   -- Navigate buffers
   if is_available "bufferline.nvim" then
-    maps.n["<S-l>"] = { "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer tab" }
-    maps.n["<S-h>"] = { "<cmd>BufferLineCyclePrev<cr>", desc = "Previous buffer tab" }
+    maps.n["<tab>"] = { "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer tab" }
+    maps.n["<S-tab>"] = { "<cmd>BufferLineCyclePrev<cr>", desc = "Previous buffer tab" }
     maps.n[">b"] = { "<cmd>BufferLineMoveNext<cr>", desc = "Move buffer tab right" }
     maps.n["<b"] = { "<cmd>BufferLineMovePrev<cr>", desc = "Move buffer tab left" }
   else
