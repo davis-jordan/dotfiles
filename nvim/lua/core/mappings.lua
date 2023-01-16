@@ -10,7 +10,6 @@ maps.n["<leader>h"] = { "<cmd>nohlsearch<cr>", desc = "No Highlight" } -- TODO: 
 maps.n["<leader>fn"] = { "<cmd>enew<cr>", desc = "New File" }
 maps.n["gx"] = { function() astronvim.system_open() end, desc = "Open the file under cursor with system app" }
 maps.n["<C-s>"] = { "<cmd>w!<cr>", desc = "Force write" }
-maps.n["<C-q>"] = { "<cmd>q!<cr>", desc = "Force quit" }
 maps.n["Q"] = "<Nop>"
 maps.n["|"] = { "<cmd>vsplit<cr>", desc = "Vertical Split" }
 maps.n["\\"] = { "<cmd>split<cr>", desc = "Horizontal Split" }
@@ -126,7 +125,6 @@ end
 -- NeoTree
 if is_available "neo-tree.nvim" then
   maps.n["<leader>e"] = { "<cmd>Neotree toggle<cr>", desc = "Toggle Explorer" }
-  maps.n["<leader>o"] = { "<cmd>Neotree focus<cr>", desc = "Focus Explorer" }
 end
 
 -- Session Manager
@@ -154,10 +152,10 @@ if is_available "smart-splits.nvim" then
   maps.n["<C-l>"] = { function() require("smart-splits").move_cursor_right() end, desc = "Move to right split" }
 
   -- Resize with arrows
-  maps.n["<C-Up>"] = { function() require("smart-splits").resize_up() end, desc = "Resize split up" }
-  maps.n["<C-Down>"] = { function() require("smart-splits").resize_down() end, desc = "Resize split down" }
-  maps.n["<C-Left>"] = { function() require("smart-splits").resize_left() end, desc = "Resize split left" }
-  maps.n["<C-Right>"] = { function() require("smart-splits").resize_right() end, desc = "Resize split right" }
+  maps.n["∆"] = { function() require("smart-splits").resize_up() end, desc = "Resize split up" }
+  maps.n["˚"] = { function() require("smart-splits").resize_down() end, desc = "Resize split down" }
+  maps.n["˙"] = { function() require("smart-splits").resize_left() end, desc = "Resize split left" }
+  maps.n["¬"] = { function() require("smart-splits").resize_right() end, desc = "Resize split right" }
 else
   maps.n["<C-h>"] = { "<C-w>h", desc = "Move to left split" }
   maps.n["<C-j>"] = { "<C-w>j", desc = "Move to below split" }
@@ -314,4 +312,10 @@ maps.n["<leader>uw"] = { function() astronvim.ui.toggle_wrap() end, desc = "Togg
 maps.n["<leader>uy"] = { function() astronvim.ui.toggle_syntax() end, desc = "Toggle syntax highlight" }
 maps.n["<leader>uN"] = { function() astronvim.ui.toggle_ui_notifications() end, desc = "Toggle UI notifications" }
 
+-- Personal Mappings
+maps.n["<leader>l"] = { "oconsole.log('');<esc>F'i", desc = "Log on Next Line" }
+maps.n["<leader>L"] = { "Oconsole.log('');<esc>F'i", desc = "Log on Previous Line" }
+
 astronvim.set_mappings(astronvim.user_plugin_opts("mappings", maps))
+
+
