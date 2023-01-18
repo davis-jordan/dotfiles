@@ -3,7 +3,7 @@ local actions = require "telescope.actions"
 
 telescope.setup(astronvim.user_plugin_opts("plugins.telescope", {
   defaults = {
-
+    file_ignore_patterns = { "node_modules" },
     prompt_prefix = string.format("%s ", astronvim.get_icon "Search"),
     selection_caret = string.format("%s ", astronvim.get_icon "Selected"),
     path_display = { "truncate" },

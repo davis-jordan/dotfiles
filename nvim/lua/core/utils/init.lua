@@ -61,7 +61,7 @@ astronvim.git_plugins = {}
 astronvim.file_plugins = {}
 --- regex used for matching a valid URL/URI string
 astronvim.url_matcher =
-  "\\v\\c%(%(h?ttps?|ftp|file|ssh|git)://|[a-z]+[@][a-z]+[.][a-z]+:)%([&:#*@~%_\\-=?!+;/0-9a-z]+%(%([.;/?]|[.][.]+)[&:#*@~%_\\-=?!+/0-9a-z]+|:\\d+|,%(%(%(h?ttps?|ftp|file|ssh|git)://|[a-z]+[@][a-z]+[.][a-z]+:)@![0-9a-z]+))*|\\([&:#*@~%_\\-=?!+;/.0-9a-z]*\\)|\\[[&:#*@~%_\\-=?!+;/.0-9a-z]*\\]|\\{%([&:#*@~%_\\-=?!+;/.0-9a-z]*|\\{[&:#*@~%_\\-=?!+;/.0-9a-z]*})\\})+"
+"\\v\\c%(%(h?ttps?|ftp|file|ssh|git)://|[a-z]+[@][a-z]+[.][a-z]+:)%([&:#*@~%_\\-=?!+;/0-9a-z]+%(%([.;/?]|[.][.]+)[&:#*@~%_\\-=?!+/0-9a-z]+|:\\d+|,%(%(%(h?ttps?|ftp|file|ssh|git)://|[a-z]+[@][a-z]+[.][a-z]+:)@![0-9a-z]+))*|\\([&:#*@~%_\\-=?!+;/.0-9a-z]*\\)|\\[[&:#*@~%_\\-=?!+;/.0-9a-z]*\\]|\\{%([&:#*@~%_\\-=?!+;/.0-9a-z]*|\\{[&:#*@~%_\\-=?!+;/.0-9a-z]*})\\})+"
 
 --- Main configuration engine logic for extending a default configuration table with either a function override or a table to merge into the default option
 -- @function astronvim.func_or_extend
@@ -258,7 +258,8 @@ function astronvim.lazy_load_commands(plugin, commands)
       pcall(
         vim.cmd,
         string.format(
-          'command -nargs=* -range -bang -complete=file %s lua require("packer.load")({"%s"}, { cmd = "%s", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)',
+          'command -nargs=* -range -bang -complete=file %s lua require("packer.load")({"%s"}, { cmd = "%s", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)'
+          ,
           command,
           plugin,
           command
@@ -442,6 +443,44 @@ function astronvim.alpha_button(sc, txt)
     on_press = function()
       local key = vim.api.nvim_replace_termcodes(sc_, true, false, true)
       vim.api.nvim_feedkeys(key, "normal", false)
+    end,
+    opts = {
+      position = "center",
+      text = txt,
+      shortcut = sc,
+      cursor = 5,
+      width = 36,
+      align_shortcut = "right",
+      hl = "DashboardCenter",
+      hl_shortcut = "DashboardShortcut",
+    },
+  }
+end
+
+function astronvim.bookmark_button(sc, txt, cmd)
+  -- return the button entity to display the correct text and send the correct keybinding on press
+  vim.api.nvim_set_keymap('n', sc, '', {
+    callback = function()
+      vim.api.nvim_command(cmd)
+      -- vim.keymap.del('n', sc)
+      -- TODO: make this not hard coded
+      vim.keymap.del('n', 'w')
+      vim.keymap.del('n', 't')
+      vim.keymap.del('n', 's')
+      vim.keymap.del('n', 'd')
+      vim.keymap.del('n', 'a')
+      vim.keymap.del('n', 'c')
+      vim.keymap.del('n', 'l')
+    end,
+  })
+
+  return {
+    type = "button",
+    val = txt,
+    on_press = function()
+      vim.api.nvim_command(cmd)
+      -- local key = vim.api.nvim_replace_termcodes(sc_, true, false, true)
+      -- vim.api.nvim_feedkeys(key, "normal", false)
     end,
     opts = {
       position = "center",

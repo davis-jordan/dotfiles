@@ -34,12 +34,13 @@ require("neo-tree").setup(astronvim.user_plugin_opts("plugins.neo-tree", {
     },
   },
   window = {
-    width = 30,
+    width = 35,
     mappings = {
       ["<space>"] = false, -- disable space until we figure out which-key disabling
-      o = "open",
       H = "prev_source",
       L = "next_source",
+      l = "open",
+      h = "close_node",
     },
   },
   filesystem = {
@@ -49,7 +50,7 @@ require("neo-tree").setup(astronvim.user_plugin_opts("plugins.neo-tree", {
     window = {
       mappings = {
         O = "system_open",
-        h = "toggle_hidden",
+        ["."] = "toggle_hidden",
       },
     },
     commands = {
