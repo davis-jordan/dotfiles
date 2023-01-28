@@ -19,7 +19,7 @@ local user_registration = user_plugin_opts("lsp.server_registration", nil, false
 local skip_setup = user_plugin_opts "lsp.skip_setup"
 
 astronvim.lsp.formatting =
-  astronvim.user_plugin_opts("lsp.formatting", { format_on_save = { enabled = true }, disabled = {} })
+astronvim.user_plugin_opts("lsp.formatting", { format_on_save = { enabled = true }, disabled = {} })
 if type(astronvim.lsp.formatting.format_on_save) == "boolean" then
   astronvim.lsp.formatting.format_on_save = { enabled = astronvim.lsp.formatting.format_on_save }
 end
@@ -59,7 +59,7 @@ astronvim.lsp.on_attach = function(client, bufnr)
   local capabilities = client.server_capabilities
   local lsp_mappings = {
     n = {
-      ["<leader>ld"] = { function() vim.diagnostic.open_float() end, desc = "Hover diagnostics" },
+      ["<leader>ad"] = { function() vim.diagnostic.open_float() end, desc = "Hover diagnostics" },
       ["[d"] = { function() vim.diagnostic.goto_prev() end, desc = "Previous diagnostic" },
       ["]d"] = { function() vim.diagnostic.goto_next() end, desc = "Next diagnostic" },
       ["gl"] = { function() vim.diagnostic.open_float() end, desc = "Hover diagnostics" },
@@ -68,21 +68,21 @@ astronvim.lsp.on_attach = function(client, bufnr)
   }
 
   if is_available "mason-lspconfig.nvim" then
-    lsp_mappings.n["<leader>li"] = { "<cmd>LspInfo<cr>", desc = "LSP information" }
+    lsp_mappings.n["<leader>ai"] = { "<cmd>LspInfo<cr>", desc = "LSP information" }
   end
 
   if is_available "null-ls.nvim" then
-    lsp_mappings.n["<leader>lI"] = { "<cmd>NullLsInfo<cr>", desc = "Null-ls information" }
+    lsp_mappings.n["<leader>aI"] = { "<cmd>NullLsInfo<cr>", desc = "Null-ls information" }
   end
 
   if capabilities.codeActionProvider then
-    lsp_mappings.n["<leader>la"] = { function() vim.lsp.buf.code_action() end, desc = "LSP code action" }
-    lsp_mappings.v["<leader>la"] = lsp_mappings.n["<leader>la"]
+    lsp_mappings.n["<leader>aa"] = { function() vim.lsp.buf.code_action() end, desc = "LSP code action" }
+    lsp_mappings.v["<leader>aa"] = lsp_mappings.n["<leader>aa"]
   end
 
   if capabilities.codeLensProvider then
-    lsp_mappings.n["<leader>ll"] = { function() vim.lsp.codelens.refresh() end, desc = "LSP codelens refresh" }
-    lsp_mappings.n["<leader>lL"] = { function() vim.lsp.codelens.run() end, desc = "LSP codelens run" }
+    lsp_mappings.n["<leader>al"] = { function() vim.lsp.codelens.refresh() end, desc = "LSP codelens refresh" }
+    lsp_mappings.n["<leader>aL"] = { function() vim.lsp.codelens.run() end, desc = "LSP codelens run" }
   end
 
   if capabilities.declarationProvider then
@@ -94,11 +94,11 @@ astronvim.lsp.on_attach = function(client, bufnr)
   end
 
   if capabilities.documentFormattingProvider and not tbl_contains(astronvim.lsp.formatting.disabled, client.name) then
-    lsp_mappings.n["<leader>lf"] = {
+    lsp_mappings.n["<leader>af"] = {
       function() vim.lsp.buf.format(astronvim.lsp.format_opts) end,
       desc = "Format buffer",
     }
-    lsp_mappings.v["<leader>lf"] = lsp_mappings.n["<leader>lf"]
+    lsp_mappings.v["<leader>af"] = lsp_mappings.n["<leader>af"]
 
     vim.api.nvim_buf_create_user_command(
       bufnr,
@@ -108,10 +108,9 @@ astronvim.lsp.on_attach = function(client, bufnr)
     )
     local autoformat = astronvim.lsp.formatting.format_on_save
     local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
-    if
-      autoformat.enabled
-      and (tbl_isempty(autoformat.allow_filetypes or {}) or tbl_contains(autoformat.allow_filetypes, filetype))
-      and (tbl_isempty(autoformat.ignore_filetypes or {}) or not tbl_contains(autoformat.ignore_filetypes, filetype))
+    if autoformat.enabled
+        and (tbl_isempty(autoformat.allow_filetypes or {}) or tbl_contains(autoformat.allow_filetypes, filetype))
+        and (tbl_isempty(autoformat.ignore_filetypes or {}) or not tbl_contains(autoformat.ignore_filetypes, filetype))
     then
       local autocmd_group = "auto_format_" .. bufnr
       vim.api.nvim_create_augroup(autocmd_group, { clear = true })
@@ -157,15 +156,15 @@ astronvim.lsp.on_attach = function(client, bufnr)
 
   if capabilities.referencesProvider then
     lsp_mappings.n["gr"] = { function() vim.lsp.buf.references() end, desc = "References of current symbol" }
-    lsp_mappings.n["<leader>lR"] = { function() vim.lsp.buf.references() end, desc = "Search references" }
+    lsp_mappings.n["<leader>aR"] = { function() vim.lsp.buf.references() end, desc = "Search references" }
   end
 
   if capabilities.renameProvider then
-    lsp_mappings.n["<leader>lr"] = { function() vim.lsp.buf.rename() end, desc = "Rename current symbol" }
+    lsp_mappings.n["<leader>ar"] = { function() vim.lsp.buf.rename() end, desc = "Rename current symbol" }
   end
 
   if capabilities.signatureHelpProvider then
-    lsp_mappings.n["<leader>lh"] = { function() vim.lsp.buf.signature_help() end, desc = "Signature help" }
+    lsp_mappings.n["<leader>ah"] = { function() vim.lsp.buf.signature_help() end, desc = "Signature help" }
   end
 
   if capabilities.typeDefinitionProvider then
@@ -173,7 +172,7 @@ astronvim.lsp.on_attach = function(client, bufnr)
   end
 
   if capabilities.workspaceSymbolProvider then
-    lsp_mappings.n["<leader>lG"] = { function() vim.lsp.buf.workspace_symbol() end, desc = "Search workspace symbols" }
+    lsp_mappings.n["<leader>aG"] = { function() vim.lsp.buf.workspace_symbol() end, desc = "Search workspace symbols" }
   end
 
   if is_available "telescope.nvim" then -- setup telescope mappings if available
@@ -182,14 +181,14 @@ astronvim.lsp.on_attach = function(client, bufnr)
       lsp_mappings.n.gI[1] = function() require("telescope.builtin").lsp_implementations() end
     end
     if lsp_mappings.n.gr then lsp_mappings.n.gr[1] = function() require("telescope.builtin").lsp_references() end end
-    if lsp_mappings.n["<leader>lR"] then
-      lsp_mappings.n["<leader>lR"][1] = function() require("telescope.builtin").lsp_references() end
+    if lsp_mappings.n["<leader>aR"] then
+      lsp_mappings.n["<leader>aR"][1] = function() require("telescope.builtin").lsp_references() end
     end
     if lsp_mappings.n.gT then
       lsp_mappings.n.gT[1] = function() require("telescope.builtin").lsp_type_definitions() end
     end
-    if lsp_mappings.n["<leader>lG"] then
-      lsp_mappings.n["<leader>lG"][1] = function() require("telescope.builtin").lsp_workspace_symbols() end
+    if lsp_mappings.n["<leader>aG"] then
+      lsp_mappings.n["<leader>aG"][1] = function() require("telescope.builtin").lsp_workspace_symbols() end
     end
   end
 
@@ -223,7 +222,7 @@ astronvim.lsp.flags = user_plugin_opts "lsp.flags"
 -- @return the table of LSP options used when setting up the given language server
 function astronvim.lsp.server_settings(server_name)
   local server = require("lspconfig")[server_name]
-  local opts = user_plugin_opts( -- get user server-settings
+  local opts = user_plugin_opts(-- get user server-settings
     "lsp.server-settings." .. server_name, -- TODO: RENAME lsp.server-settings to lsp.config in v3
     user_plugin_opts("server-settings." .. server_name, { -- get default server-settings
       capabilities = vim.tbl_deep_extend("force", astronvim.lsp.capabilities, server.capabilities or {}),

@@ -3,9 +3,9 @@ local user_plugin_opts = astronvim.user_plugin_opts
 local mappings = {
   n = {
     ["<leader>"] = {
+      a = { name = "LSP" },
       f = { name = "File" },
       p = { name = "Packages" },
-      l = { name = "LSP" },
       u = { name = "UI" },
     },
   },

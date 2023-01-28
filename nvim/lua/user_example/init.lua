@@ -72,17 +72,11 @@ local config = {
 
   -- Set dashboard header
   header = {
-    " █████  ███████ ████████ ██████   ██████",
-    "██   ██ ██         ██    ██   ██ ██    ██",
-    "███████ ███████    ██    ██████  ██    ██",
-    "██   ██      ██    ██    ██   ██ ██    ██",
-    "██   ██ ███████    ██    ██   ██  ██████",
-    " ",
-    "    ███    ██ ██    ██ ██ ███    ███",
-    "    ████   ██ ██    ██ ██ ████  ████",
-    "    ██ ██  ██ ██    ██ ██ ██ ████ ██",
-    "    ██  ██ ██  ██  ██  ██ ██  ██  ██",
-    "    ██   ████   ████   ██ ██      ██",
+    "███    ██ ██    ██ ██ ███    ███",
+    "████   ██ ██    ██ ██ ████  ████",
+    "██ ██  ██ ██    ██ ██ ██ ████ ██",
+    "██  ██ ██  ██  ██  ██ ██  ██  ██",
+    "██   ████   ████   ██ ██      ██",
   },
 
   -- Default theme configuration
@@ -155,7 +149,7 @@ local config = {
       disabled = { -- disable formatting capabilities for the listed language servers
         -- "sumneko_lua",
       },
-      timeout_ms = 1000, -- default format timeout
+      timeout_ms = 300, -- default format timeout
       -- filter = function(client) -- fully override the default formatting function
       --   return true
       -- end
@@ -220,16 +214,29 @@ local config = {
     init = {
       -- You can disable default plugins as follows:
       -- ["goolord/alpha-nvim"] = { disable = true },
+      -- ["unblevable/quick-scope"] = { disable = true },
 
       -- You can also add new plugins here as well:
       -- Add plugins, the packer syntax without the "use"
       -- { "andweeb/presence.nvim" },
+      -- { 'jinh0/eyeliner.nvim' },
+
       -- {
       --   "ray-x/lsp_signature.nvim",
       --   event = "BufRead",
       --   config = function()
       --     require("lsp_signature").setup()
       --   end,
+      -- },
+
+      -- {
+      --     'jinh0/eyeliner.nvim',
+      --     config = function()
+      --         require 'eyeliner'.setup {
+      --             highlight_on_key = true, -- show highlights only after keypress
+      --             dim = false -- dim all other characters if set to true (recommended!)
+      --         }
+      --     end
       -- },
 
       -- We also support a key value style plugin definition similar to NvChad:

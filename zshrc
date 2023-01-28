@@ -17,7 +17,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Auto-suggestion
 source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-# bindkey '^M' autosuggest-execute
 
 # vi-mode Settings
 #==================
@@ -42,8 +41,8 @@ my-script_widget() {
   RESULT=$(zsh $HOME/Documents/Scripts/clipboard_select.sh)
   LBUFFER+=$RESULT
 }
-zle -N my-script_widget
-bindkey ^h my-script_widget
+# zle -N my-script_widget
+# bindkey ^h my-script_widget
 
 # Bind jk/kj to esc for vi-mode
 # -----------------------------
@@ -55,10 +54,6 @@ export KEYTIMEOUT=10
 
 # Path Exports
 # ============
-# export PATH="/usr/local/opt/node@10/bin:$PATH"
-# export LDFLAGS="-L/usr/local/opt/node@10/lib"
-# export CPPFLAGS="-I/usr/local/opt/node@10/include"
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm" # Loads nvm bash_completion
@@ -75,15 +70,9 @@ export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES # Allows multithreading in python
 
 export PATH="$PATH:$HOME/Documents/Scripts"
 
-# Node
-# export PATH="/usr/local/opt/node@10/bin:$PATH"
-# export LDFLAGS="-L/usr/local/opt/node@10/lib"
-# export CPPFLAGS="-I/usr/local/opt/node@10/include"
-
 # Python with pyenv
 PATH=$(pyenv root)/shims:$PATH
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# export PATH="/usr/local/opt/llvm/bin:$PATH"
-# export adb="$HOME/Documents/Scripts/adb_wrapper.sh"
+
 PATH=$PATH:/usr/local/bin/node
 export BAT_THEME="TwoDark"

@@ -5,7 +5,6 @@ local maps = { i = {}, n = {}, v = {}, t = {} }
 -- Normal --
 -- Standard Operations
 maps.n["<leader>w"] = { "<cmd>w<cr>", desc = "Save" }
-maps.n["<leader>q"] = { "<cmd>q<cr>", desc = "Quit" }
 maps.n["<leader>h"] = { "<cmd>nohlsearch<cr>", desc = "No Highlight" } -- TODO: REMOVE IN v3
 maps.n["<leader>fn"] = { "<cmd>enew<cr>", desc = "New File" }
 maps.n["gx"] = { function() astronvim.system_open() end, desc = "Open the file under cursor with system app" }
@@ -38,11 +37,11 @@ if vim.g.heirline_bufferline then
   maps.n["<leader>C"] = { function() astronvim.close_buf(0, true) end, desc = "Force close buffer" }
   maps.n["<S-l>"] = { function() astronvim.nav_buf(vim.v.count > 0 and vim.v.count or 1) end, desc = "Next buffer" }
   maps.n["<S-h>"] =
-    { function() astronvim.nav_buf(-(vim.v.count > 0 and vim.v.count or 1)) end, desc = "Previous buffer" }
+  { function() astronvim.nav_buf(-(vim.v.count > 0 and vim.v.count or 1)) end, desc = "Previous buffer" }
   maps.n[">b"] =
-    { function() astronvim.move_buf(vim.v.count > 0 and vim.v.count or 1) end, desc = "Move buffer tab right" }
+  { function() astronvim.move_buf(vim.v.count > 0 and vim.v.count or 1) end, desc = "Move buffer tab right" }
   maps.n["<b"] =
-    { function() astronvim.move_buf(-(vim.v.count > 0 and vim.v.count or 1)) end, desc = "Move buffer tab left" }
+  { function() astronvim.move_buf(-(vim.v.count > 0 and vim.v.count or 1)) end, desc = "Move buffer tab left" }
 
   maps.n["<leader>bb"] = {
     function()
@@ -134,7 +133,7 @@ if is_available "neovim-session-manager" then
   maps.n["<leader>Sd"] = { "<cmd>SessionManager! delete_session<cr>", desc = "Delete session" }
   maps.n["<leader>Sf"] = { "<cmd>SessionManager! load_session<cr>", desc = "Search sessions" }
   maps.n["<leader>S."] =
-    { "<cmd>SessionManager! load_current_dir_session<cr>", desc = "Load current directory session" }
+  { "<cmd>SessionManager! load_current_dir_session<cr>", desc = "Load current directory session" }
 end
 
 -- Package Manager
@@ -169,12 +168,24 @@ end
 
 -- SymbolsOutline
 if is_available "aerial.nvim" then
-  maps.n["<leader>lS"] = { function() require("aerial").toggle() end, desc = "Symbols outline" }
+  maps.n["<leader>aS"] = { function() require("aerial").toggle() end, desc = "Symbols outline" }
 end
 
 -- Telescope
 if is_available "telescope.nvim" then
   maps.n["<leader>fw"] = { function() require("telescope.builtin").live_grep() end, desc = "Search words" }
+  local actions = require("telescope.actions")
+  require("telescope").setup({
+    defaults = {
+      mappings = {
+        i = {
+          ["<esc>"] = actions.close,
+          ["<C-j>"] = actions.move_selection_next,
+          ["<C-k>"] = actions.move_selection_previous,
+        },
+      },
+    },
+  })
   maps.n["<leader>fW"] = {
     function()
       require("telescope.builtin").live_grep {
@@ -186,9 +197,13 @@ if is_available "telescope.nvim" then
   maps.n["<leader>gt"] = { function() require("telescope.builtin").git_status() end, desc = "Git status" }
   maps.n["<leader>gb"] = { function() require("telescope.builtin").git_branches() end, desc = "Git branches" }
   maps.n["<leader>gc"] = { function() require("telescope.builtin").git_commits() end, desc = "Git commits" }
-  maps.n["<leader>ff"] = { function() require("telescope.builtin").find_files() end, desc = "Search files" }
-  maps.n["<leader>fF"] = {
-    function() require("telescope.builtin").find_files { hidden = true, no_ignore = true } end,
+  -- maps.n["<leader>ff"] = { function() require("telescope.builtin").find_files() end, desc = "Search files" }
+  -- maps.n["<leader>fF"] = {
+  --   function() require("telescope.builtin").find_files { hidden = true, no_ignore = true } end,
+  --   desc = "Search all files",
+  -- }
+  maps.n["<leader>ff"] = {
+    function() require("telescope.builtin").find_files { hidden = true } end,
     desc = "Search all files",
   }
   maps.n["<leader>fb"] = { function() require("telescope.builtin").buffers() end, desc = "Search buffers" }
@@ -196,7 +211,8 @@ if is_available "telescope.nvim" then
   maps.n["<leader>fm"] = { function() require("telescope.builtin").marks() end, desc = "Search marks" }
   maps.n["<leader>fo"] = { function() require("telescope.builtin").oldfiles() end, desc = "Search history" }
   maps.n["<leader>fc"] =
-    { function() require("telescope.builtin").grep_string() end, desc = "Search for word under cursor" }
+  { function() require("telescope.builtin").grep_string() end, desc = "Search for word under cursor" }
+  maps.n["<leader>fr"] = { function() require("telescope.builtin").resume() end, desc = "Resume Prev Search" }
   maps.n["<leader>sb"] = { function() require("telescope.builtin").git_branches() end, desc = "Git branches" }
   maps.n["<leader>sh"] = { function() require("telescope.builtin").help_tags() end, desc = "Search help" }
   maps.n["<leader>sm"] = { function() require("telescope.builtin").man_pages() end, desc = "Search man" }
@@ -205,9 +221,9 @@ if is_available "telescope.nvim" then
   maps.n["<leader>sc"] = { function() require("telescope.builtin").commands() end, desc = "Search commands" }
   if astronvim.is_available "nvim-notify" then
     maps.n["<leader>sn"] =
-      { function() require("telescope").extensions.notify.notify() end, desc = "Search notifications" }
+    { function() require("telescope").extensions.notify.notify() end, desc = "Search notifications" }
   end
-  maps.n["<leader>ls"] = {
+  maps.n["<leader>as"] = {
     function()
       local aerial_avail, _ = pcall(require, "aerial")
       if aerial_avail then
@@ -218,14 +234,14 @@ if is_available "telescope.nvim" then
     end,
     desc = "Search symbols",
   }
-  maps.n["<leader>lD"] = { function() require("telescope.builtin").diagnostics() end, desc = "Search diagnostics" }
+  maps.n["<leader>aD"] = { function() require("telescope.builtin").diagnostics() end, desc = "Search diagnostics" }
 end
 
 -- Terminal
 if is_available "toggleterm.nvim" then
   local toggle_term_cmd = astronvim.toggle_term_cmd
   if vim.fn.executable "lazygit" == 1 then
-    maps.n["<leader>gg"] = { function() toggle_term_cmd "lazygit" end, desc = "ToggleTerm lazygit" }
+    maps.n["<leader>gg"] = { function() toggle_term_cmd("lazygit", true) end, desc = "ToggleTerm lazygit" }
     maps.n["<leader>tl"] = { function() toggle_term_cmd "lazygit" end, desc = "ToggleTerm lazygit" }
   end
   if vim.fn.executable "node" == 1 then
@@ -243,6 +259,7 @@ if is_available "toggleterm.nvim" then
   maps.n["<leader>tf"] = { "<cmd>ToggleTerm direction=float<cr>", desc = "ToggleTerm float" }
   maps.n["<leader>th"] = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", desc = "ToggleTerm horizontal split" }
   maps.n["<leader>tv"] = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", desc = "ToggleTerm vertical split" }
+  maps.n["<leader>tt"] = { "<cmd>ToggleTerm<cr>", desc = "Toggle terminal" }
   maps.n["<F7>"] = { "<cmd>ToggleTerm<cr>", desc = "Toggle terminal" }
   maps.t["<F7>"] = maps.n["<F7>"]
   maps.n["<C-'>"] = maps.n["<F7>"]
@@ -312,10 +329,27 @@ maps.n["<leader>uw"] = { function() astronvim.ui.toggle_wrap() end, desc = "Togg
 maps.n["<leader>uy"] = { function() astronvim.ui.toggle_syntax() end, desc = "Toggle syntax highlight" }
 maps.n["<leader>uN"] = { function() astronvim.ui.toggle_ui_notifications() end, desc = "Toggle UI notifications" }
 
--- Personal Mappings
+-- Personal Mappings ----------------------------------------------------------------------------------------------
 maps.n["<leader>l"] = { "oconsole.log('');<esc>F'i", desc = "Log on Next Line" }
 maps.n["<leader>L"] = { "Oconsole.log('');<esc>F'i", desc = "Log on Previous Line" }
 
+maps.i["jk"] = { "<esc>", desc = "Escape" }
+maps.i["kj"] = { "<esc>", desc = "Escape" }
+
+-- Stay in visual mode after indenting
+maps.v["<"] = { "<gv", desc = "Indent" }
+maps.v[">"] = { ">gv", desc = "Indent" }
+-- Only one press instead of 2 to indent
+maps.n[">"] = { ">>", desc = "Visual Indent" }
+maps.n["<"] = { "<<", desc = "Visual Indent" }
+
+-- Paste without yanking text that it replaces
+maps.v["p"] = { "\"_dP", desc = "Indent" }
+
+maps.n["zh"] = { "20zh", desc = "Jump Cursor Left" }
+maps.n["zl"] = { "20zl", desc = "Jump Cursor Right" }
+
+-- make y effect to end of line instead of whole line
+maps.n["Y"] = { "y$", desc = "Yank To End Of Line" }
+
 astronvim.set_mappings(astronvim.user_plugin_opts("mappings", maps))
-
-

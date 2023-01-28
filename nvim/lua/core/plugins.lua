@@ -19,18 +19,18 @@ local astro_plugins = {
     config = function() require "core.plugins" end,
   },
 
+  -- Eyeliner
+  -- ["jinh0/eyeliner.nvim"] = {
+  --   module = "eyeliner",
+  --   config = function() require "configs.eyeliner" end,
+  -- },
+
   -- Optimiser
   ["lewis6991/impatient.nvim"] = {},
+  ["yuttie/comfortable-motion.vim"] = {},
 
   -- Lua functions
   ["nvim-lua/plenary.nvim"] = { module = "plenary" },
-
-  -- Indent detection
-  ["Darazaki/indent-o-matic"] = {
-    opt = true,
-    setup = function() table.insert(astronvim.file_plugins, "indent-o-matic") end,
-    config = function() require "configs.indent-o-matic" end,
-  },
 
   -- Notification Enhancer
   ["rcarriga/nvim-notify"] = {
@@ -122,7 +122,7 @@ local astro_plugins = {
         "TSUpdateSync",
       })
     end,
-    run = function() require("nvim-treesitter.install").update { with_sync = true }() end,
+    run = function() require("nvim-treesitter.install").update { with_sync = true } () end,
     config = function() require "configs.treesitter" end,
   },
 
@@ -304,10 +304,10 @@ local astro_plugins = {
   ["folke/which-key.nvim"] = { module = "which-key", config = function() require "configs.which-key" end },
 
   -- Smooth escaping
-  ["max397574/better-escape.nvim"] = {
-    event = "InsertCharPre",
-    config = function() require "configs.better_escape" end,
-  },
+  -- ["max397574/better-escape.nvim"] = {
+  --   event = "InsertCharPre",
+  --   config = function() require "configs.better_escape" end,
+  -- },
 
   -- Get extra JSON schemas
   ["b0o/SchemaStore.nvim"] = { module = "schemastore" },
@@ -319,7 +319,20 @@ local astro_plugins = {
     setup = function() astronvim.lazy_load_commands("neovim-session-manager", "SessionManager") end,
     config = function() require "configs.session_manager" end,
   },
+
+  -- Indent detection
+  -- ["Darazaki/indent-o-matic"] = {
+  --   opt = true,
+  --   setup = function() table.insert(astronvim.file_plugins, "indent-o-matic") end,
+  --   config = function() require "configs.indent-o-matic" end,
+  -- },
+
+  -- -- Quickscope
+  -- ["unblevable/quick-scope"] = {
+  --   config = function() vim.api.nvim_command("let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']") end,
+  -- },
 }
+
 
 if astronvim.updater.snapshot then
   for plugin, options in pairs(astro_plugins) do

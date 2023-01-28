@@ -321,7 +321,7 @@ end
 
 --- Toggle a user terminal if it exists, if not then create a new one and save it
 -- @param term_details a terminal command string or a table of options for Terminal:new() (Check toggleterm.nvim documentation for table format)
-function astronvim.toggle_term_cmd(opts)
+function astronvim.toggle_term_cmd(opts, isTab)
   local terms = astronvim.user_terminals
   -- if a command string is provided, create a basic table for Terminal:new() options
   if type(opts) == "string" then opts = { cmd = opts, hidden = true } end
@@ -330,6 +330,8 @@ function astronvim.toggle_term_cmd(opts)
   if not terms[opts.cmd] then terms[opts.cmd] = {} end
   if not terms[opts.cmd][num] then
     if not opts.count then opts.count = vim.tbl_count(terms) * 100 + num end
+
+    if isTab == true then opts['direction'] = 'tab' end
     terms[opts.cmd][num] = require("toggleterm.terminal").Terminal:new(opts)
   end
   -- toggle the terminal

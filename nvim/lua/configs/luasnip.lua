@@ -10,6 +10,21 @@ for _, load_type in ipairs { "vscode", "snipmate", "lua" } do
   local loader_settings = user_settings[load_type]
   if loader_settings then loader.lazy_load(loader_settings) end
 end
+
+local filetype_extend = {
+  javascript = {
+    "javascriptreact",
+    "next-ts",
+    "next",
+    "react-native-ts",
+    "react-native",
+  },
+};
+
+for filetype, snippets in pairs(filetype_extend) do
+  luasnip.filetype_extend(filetype, snippets)
+end
+
 if type(user_settings.filetype_extend) == "table" then
   for filetype, snippets in pairs(user_settings.filetype_extend) do
     luasnip.filetype_extend(filetype, snippets)
