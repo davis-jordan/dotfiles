@@ -19,12 +19,6 @@ local astro_plugins = {
     config = function() require "core.plugins" end,
   },
 
-  -- Eyeliner
-  -- ["jinh0/eyeliner.nvim"] = {
-  --   module = "eyeliner",
-  --   config = function() require "configs.eyeliner" end,
-  -- },
-
   -- Optimiser
   ["lewis6991/impatient.nvim"] = {},
   ["yuttie/comfortable-motion.vim"] = {},
@@ -327,10 +321,6 @@ local astro_plugins = {
   --   config = function() require "configs.indent-o-matic" end,
   -- },
 
-  -- -- Quickscope
-  -- ["unblevable/quick-scope"] = {
-  --   config = function() vim.api.nvim_command("let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']") end,
-  -- },
 }
 
 

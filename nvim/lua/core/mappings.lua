@@ -331,6 +331,20 @@ maps.n["<leader>uN"] = { function() astronvim.ui.toggle_ui_notifications() end, 
 
 -- Personal Mappings ----------------------------------------------------------------------------------------------
 maps.n["<leader>l"] = { "oconsole.log('');<esc>F'i", desc = "Log on Next Line" }
+-- maps.n["<leader>l"] = {
+--   function()
+--     local filetype = vim.bo.filetype
+--     if (filetype == 'javascript' or filetype == 'typescript' or filetype == 'typescriptreact') then
+--       vim.cmd "normal oconsole.log('');"
+--       vim.api.nvim_input('<ESC>')
+--       vim.cmd "normal F'"
+--       vim.cmd 'startinsert'
+--     end
+--     print(filetype)
+--   end,
+--   desc = "Log on Next Line"
+-- }
+
 maps.n["<leader>L"] = { "Oconsole.log('');<esc>F'i", desc = "Log on Previous Line" }
 
 maps.i["jk"] = { "<esc>", desc = "Escape" }

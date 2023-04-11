@@ -5,7 +5,6 @@
 -- normal format is "key = value". These also handle array like data structures
 -- where a value with no key simply has an implicit numeric key
 local config = {
-
   -- Configure AstroNvim updates
   updater = {
     remote = "origin", -- remote to use
@@ -24,10 +23,8 @@ local config = {
     --   ["remote3"] = "github_user", -- GitHub user assume AstroNvim fork
     -- },
   },
-
   -- Set colorscheme to use
   colorscheme = "default_theme",
-
   -- Add highlight groups in any theme
   highlights = {
     -- init = { -- this table overrides highlights in all themes
@@ -37,7 +34,6 @@ local config = {
     --   Normal = { bg = "#000000" },
     -- },
   },
-
   -- set vim options here (vim.<first_key>.<second_key> = value)
   options = {
     opt = {
@@ -46,6 +42,7 @@ local config = {
       number = true, -- sets vim.opt.number
       spell = false, -- sets vim.opt.spell
       wrap = false, -- sets vim.opt.wrap
+      formatoptions = 'jql'
     },
     g = {
       mapleader = " ", -- sets vim.g.mapleader
@@ -58,6 +55,9 @@ local config = {
       ui_notifications_enabled = true, -- disable notifications when toggling UI elements
       heirline_bufferline = false, -- enable new heirline based bufferline (requires :PackerSync after changing)
     },
+    o = {
+      formatoptions = "jql",
+    }
   },
   -- If you need more control, you can use the function()...end notation
   -- options = function(local_vim)
@@ -77,7 +77,6 @@ local config = {
     "██  ██ ██  ██  ██  ██ ██  ██  ██",
     "██   ████   ████   ██ ██      ██",
   },
-
   -- Default theme configuration
   default_theme = {
     -- Modify the color palette for the default theme
@@ -122,13 +121,11 @@ local config = {
       ["jinh0/eyeliner.nvim"] = false,
     },
   },
-
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
     virtual_text = true,
     underline = true,
   },
-
   -- Extend LSP configuration
   lsp = {
     -- enable servers that you already have installed without mason
@@ -185,7 +182,6 @@ local config = {
       -- },
     },
   },
-
   -- Mapping data with "desc" stored directly by vim.keymap.set().
   --
   -- Please use this mappings table to set keyboard mapping since this is the
@@ -208,7 +204,6 @@ local config = {
       -- ["<esc>"] = false,
     },
   },
-
   -- Configure plugins
   plugins = {
     init = {
@@ -218,6 +213,35 @@ local config = {
       -- You can also add new plugins here as well:
       -- Add plugins, the packer syntax without the "use"
       -- { "andweeb/presence.nvim" },
+      --
+
+      -- {
+      --   'ggandor/lightspeed.nvim',
+      --   config = function()
+      --     require 'lightspeed'.setup {
+      --       ignore_case = false,
+      --       exit_after_idle_msecs = { unlabeled = nil, labeled = nil },
+      --       --- s/x ---
+      --       jump_to_unique_chars = { safety_timeout = 400 },
+      --       match_only_the_start_of_same_char_seqs = true,
+      --       force_beacons_into_match_width = false,
+      --       -- Display characters in a custom way in the highlighted matches.
+      --       substitute_chars = { ['\r'] = '¬', },
+      --       -- Leaving the appropriate list empty effectively disables "smart" mode,
+      --       -- and forces auto-jump to be on or off.
+      --       -- safe_labels = { . . . },
+      --       -- labels = { . . . },
+      --       -- These keys are captured directly by the plugin at runtime.
+      --       special_keys = {
+      --         next_match_group = '<space>',
+      --         prev_match_group = '<tab>',
+      --       },
+      --       --- f/t ---
+      --       limit_ft_matches = 4,
+      --       repeat_ft_with_target_char = false,
+      --     }
+      --   end
+      -- },
 
       {
         'jinh0/eyeliner.nvim',
@@ -242,16 +266,6 @@ local config = {
       --   config = function()
       --     require("lsp_signature").setup()
       --   end,
-      -- },
-
-      -- {
-      --     'jinh0/eyeliner.nvim',
-      --     config = function()
-      --         require 'eyeliner'.setup {
-      --             highlight_on_key = true, -- show highlights only after keypress
-      --             dim = false -- dim all other characters if set to true (recommended!)
-      --         }
-      --     end
       -- },
 
       -- We also support a key value style plugin definition similar to NvChad:
@@ -292,7 +306,6 @@ local config = {
       -- ensure_installed = { "python" },
     },
   },
-
   -- LuaSnip Options
   luasnip = {
     -- Extend filetypes
@@ -305,7 +318,6 @@ local config = {
       paths = {},
     },
   },
-
   -- CMP Source Priorities
   -- modify here the priorities of default cmp sources
   -- higher value == higher priority
@@ -320,7 +332,6 @@ local config = {
       path = 250,
     },
   },
-
   -- Customize Heirline options
   heirline = {
     -- -- Customize different separators between sections
@@ -346,7 +357,6 @@ local config = {
     --   },
     -- },
   },
-
   -- Modify which-key registration (Use this with mappings table in the above.)
   ["which-key"] = {
     -- Add bindings which show up as group name
@@ -362,7 +372,6 @@ local config = {
       },
     },
   },
-
   -- This function is run last and is a good place to configuring
   -- augroups/autocommands and custom filetypes also this just pure lua so
   -- anything that doesn't fit in the normal config locations above can go here
@@ -373,6 +382,11 @@ local config = {
         vim.api.nvim_set_hl(0, 'EyelinerPrimary', { bold = true, underline = true })
       end,
     })
+
+    vim.o.formatoptions = "jql"
+
+    -- vim.opt.formatoptions:remove({ 'c', 'r', 'o' })
+
     -- Set up custom filetypes
     -- vim.filetype.add {
     --   extension = {
