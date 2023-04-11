@@ -14,7 +14,7 @@ alias startwebhard="cd ${TAIV_PATH}/TaiV_Web_App && npm i && cd prebuild_scripts
 alias startweb="cd ${TAIV_PATH}/TaiV_Web_App && npm start"
 alias taivdashboard="cd ${TAIV_PATH}/taiv_utilities_dashboard"
 alias buildtvprod="cd ${TAIV_PATH}/TaiV_TV_Client/android; ./gradlew clean; ENVFILE=../.env.prod ./gradlew assembleProdRelease; open ${TAIV_PATH}/TaiV_TV_Client/android/app/build/outputs/apk/prodRelease"
-alias buildtvdev="cd ${TAIV_PATH}/TaiV_TV_Client/android; ./gradlew clean; ENVFILE=../.env ./gradlew assembleRelease; open ${TAIV_PATH}/TaiV_TV_Client/android/app/build/outputs/apk"
+alias buildtvdev="nvm use 15.2.1 && cd ${TAIV_PATH}/TaiV_TV_Client/android; ./gradlew clean; ENVFILE=../.env ./gradlew assembleRelease; open ${TAIV_PATH}/TaiV_TV_Client/android/app/build/outputs/apk"
 
 
 # Android Dev
@@ -26,13 +26,14 @@ alias it="adb shell input text"
 alias lc="adb logcat -v color skia:S SystemControl:S audio_hw_subMixingFactory:S USBSensor:S"
 alias serialno='. ~/Documents/Scripts/get_serialno.sh'
 alias as='open -a "Android Studio.app"'
-alias slideshow='adb shell "echo 1 > /sys/class/gpio/gpio431/value"'
+alias slideshow='adb shell "if ! test -d /sys/class/gpio/gpio431; then echo "431" > /sys/class/gpio/export; chmod 777 /sys/class/gpio/gpio431/direction; chmod 777 /sys/class/gpio/gpio431/value; echo "out" > /sys/class/gpio/gpio431/direction; fi; echo 1 > /sys/class/gpio/gpio431/value;"'
 alias passthrough='adb shell "echo 0 > /sys/class/gpio/gpio431/value"'
 
 # React Native
 alias rnstart='npx react-native start'
 alias debugrn='adb shell input keyevent 82'
 alias fixrn="adb reverse tcp:8081 tcp:8081 && sleep 3 && adb shell am start -n com.android.launcher3/.Launcher && adb shell am start -n com.taiv.dev_tvApp/com.taiv_tv_client.SplashActivity"
+alias fixrk="adb reverse tcp:8081 tcp:8081 && sleep 3 && adb shell am start -n com.android.launcher3/com.android.launcher3.uioverrides.QuickstepLauncher && adb shell am start -n com.taiv.dev_tvApp/com.taiv_tv_client.SplashActivity"
 alias reactotron="open -a Reactotron && adb reverse tcp:9090 tcp:9090"
 alias react-devtools="npx react-devtools && adb reverse tcp:8097 tcp:8097";
 
