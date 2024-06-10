@@ -1,0 +1,3 @@
+# Edit and maintain all dotfiles by modifying them within this repo
+# Symlink each file to the relevant location. Example below
+ln -s ~/dotfiles/zshrc ~/.zshrc

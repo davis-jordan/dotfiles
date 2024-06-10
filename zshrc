@@ -1,19 +1,42 @@
-export ZSH="/Users/jordandavis/.oh-my-zsh"
+zmodload zsh/zprof
+
+# NVM Setup
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export ZSH="${HOME}/.oh-my-zsh"
 export EDITOR='nvim'
 
 # Basic Settings
 # ==============
-ZSH_THEME="gallifrey"
+ZSH_THEME="bira"
 setopt no_beep # zsh will not beep
 HIST_STAMPS="yyyy-mm-dd"
+DISABLE_AUTO_UPDATE="true"
+skip_global_compinit=1
+
+source ~/dotfiles/private_aliases.zsh;
 
 # Plugins
 # =======
 plugins=(
-  git
+  # git
   zsh-syntax-highlighting
   zsh-vim-mode
 )
+
+### Fix slowness of pastes with zsh-syntax-highlighting.zsh
+pasteinit() {
+  OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
+  zle -N self-insert url-quote-magic # I wonder if you'd need `.url-quote-magic`?
+}
+pastefinish() {
+  zle -N self-insert $OLD_SELF_INSERT
+}
+zstyle :bracketed-paste-magic paste-init pasteinit
+zstyle :bracketed-paste-magic paste-finish pastefinish
+### Fix slowness of pastes
 
 source $ZSH/oh-my-zsh.sh
 
@@ -27,7 +50,7 @@ bindkey -M viins 'jk' vi-cmd-mode
 bindkey -M viins 'kj' vi-cmd-mode
 
 # Set Key Timout to be longer than default for jk/kj to work
-export KEYTIMEOUT=1
+export KEYTIMEOUT=10
 bindkey -v
 
 MODE_CURSOR_VIINS="#00ff00 blinking bar"
@@ -43,33 +66,41 @@ function TRAPINT() {
 } 
 RPROMPT='${vim_mode}'
 
+# FZF search for command history
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Allows multithreading in python
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES 
+
 # Path Exports
 # ============
-export ANDROID_HOME=/Users/jordandavis/Library/Android/sdk
+export ANDROID_HOME=${HOME}/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/ndk/21.3.6528147
 export PATH=$PATH:$JAVA_HOME/bin
 export PATH=$PATH:/usr/local/bin
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH" # Override BSD sed with GNU sed
+export PATH="$PATH:$HOME/Documents/Scripts"
+export PATH="$PATH:$HOME/nvim/bin/"
 
-# NVM Setup
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm" # Loads nvm bash_completion
+export BAT_THEME="TwoDark"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '${HOME}/google-cloud-sdk/path.zsh.inc' ]; then . '${HOME}/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '${HOME}/google-cloud-sdk/completion.zsh.inc' ]; then . '${HOME}/google-cloud-sdk/completion.zsh.inc'; fi
+export PATH="/usr/local/opt/icu4c/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+
+# Homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Python with pyenv
 PATH=$(pyenv root)/shims:$PATH
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES # Allows multithreading in python
 
-PATH=$PATH:/usr/local/bin/node
-export BAT_THEME="TwoDark"
-
-# my-script_widget() LBUFFER+=$(zsh $HOME/Documents/Scripts/clipboard_select.sh)
-# my-script_widget() {
-#   RESULT=$(zsh $HOME/Documents/Scripts/clipboard_select.sh)
-#   LBUFFER+=$RESULT
-# }
-# zle -N my-script_widget
-# bindkey ^h my-script_widget
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

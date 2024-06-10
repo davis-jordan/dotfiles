@@ -67,7 +67,7 @@ alias vim="nvim"
 alias zshrc="vim ~/dotfiles/zshrc"
 alias vimrc="vim ~/dotfiles/vimrc"
 alias sourcezsh="exec zsh"
-alias editaliases="vim ~/.oh-my-zsh/custom/aliases.zsh"
+alias editaliases="vim ~/dotfiles/aliases.zsh"
 alias dotfiles="cd ~/dotfiles"
 alias cb="clipboard"
 
